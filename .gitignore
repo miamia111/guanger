@@ -1,5 +1,6 @@
 node_modules/
 dist/
-outputs/
+assets/
+scripts/publish-via-github-api.ps1
 .DS_Store
 *.log

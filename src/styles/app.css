@@ -1,18 +1,19 @@
-.page--home { position: relative; display: grid; grid-template-rows: 52% 48%; background-color: #e2dcd2; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='17'/%3E%3CfeColorMatrix values='1 0 0 0 .66  0 1 0 0 .64  0 0 1 0 .6  0 0 0 .085 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E"), radial-gradient(circle at 42% 68%, rgba(255,255,255,.23), transparent 46%); }
-.page--guide, .page--chapter, .page--detail { background-color: #e2dcd2; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='17'/%3E%3CfeColorMatrix values='1 0 0 0 .66  0 1 0 0 .64  0 0 1 0 .6  0 0 0 .085 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E"), radial-gradient(circle at 42% 68%, rgba(255,255,255,.23), transparent 46%); }
+.page--home { position: relative; display: grid; grid-template-rows: 52% 48%; }
+.page--guide, .page--chapter, .page--detail { background-color: #e2dcd2; }
 .home-art { min-height: 0; overflow: hidden; }
 .home-art .cropped-temple { width: 100%; height: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 0 88%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0 88%, transparent 100%); }
 .home-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 50%; }
 .home-copy { position: relative; z-index: 2; padding: 48px var(--gutter) 40px; }
 .home-copy h1 { margin: 0 0 15px; font-family: STSong, "Songti SC", "Noto Serif SC", SimSun, serif; font-size: clamp(54px, 8vw, 76px); font-weight: 400; line-height: 1.12; letter-spacing: .2em; }
+.home-subtitle { display: flex; align-items: center; gap: 13px; }
 .home-copy p { margin: 0; color: #7379b3; font-family: STSong, "Songti SC", var(--serif); font-size: clamp(17px, 2.8vw, 24px); letter-spacing: .12em; }
-.home-copy > i { display: block; width: 11px; height: 11px; margin-top: 34px; border-radius: 50%; background: #858ac2; }
+.home-subtitle i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #858ac2; }
 .enter-button { position: absolute; right: var(--gutter); bottom: 64px; width: min(52vw, 510px); height: 118px; display: flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid rgba(86, 92, 153, .72); color: white; text-decoration: none; background-image: linear-gradient(rgba(96,103,164,.22), rgba(86,93,153,.24)), url('/decor/button-paint-texture.png'); background-size: cover; background-position: center; box-shadow: inset 0 0 0 6px rgba(255,255,255,.08), 0 16px 34px rgba(75,76,121,.24); font-family: STSong, "Songti SC", var(--serif); font-size: 34px; font-weight: 400; letter-spacing: .22em; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
 .enter-button:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 5px rgba(255,255,255,.1), 0 16px 34px rgba(75,76,121,.26); }
 .enter-button:disabled { opacity: .72; cursor: wait; }
 .enter-button span { font-size: 12px; }
 .home-flora, .guide-flora { position: absolute; pointer-events: none; }
-.home-flora { z-index: 1; left: -2%; bottom: -1%; width: 72%; height: 31%; background: url('/decor/lavender-foliage.png') left bottom / contain no-repeat; opacity: .56; filter: saturate(.68) contrast(.92); }
+.home-flora { z-index: 1; left: -3%; bottom: -1%; width: 103%; height: 34%; background: url('/decor/lavender-landscape-v2.webp') left bottom / 112% auto no-repeat; opacity: .72; filter: saturate(.78) contrast(.96); }
 
 .site-header { position: relative; padding: 46px var(--gutter) 26px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
 .site-header .wordmark { color: var(--ink); text-decoration: none; font-size: 27px; letter-spacing: .14em; }
@@ -27,15 +28,17 @@
 .section-title::before { content: ''; width: 60px; height: 1px; margin-left: calc(var(--gutter) * -1); background: currentColor; }
 .section-title .diamond { margin-left: -35px; }
 .guide-subtitle { margin: 0 0 25px; color: var(--accent-deep); font-size: 18px; letter-spacing: .08em; }
-.guide-about { width: min(68%, 570px); margin: 0 0 50px; font-size: 20px; line-height: 2.05; letter-spacing: .1em; }
-.guide-flora { right: -80px; top: 180px; width: 50%; height: 430px; background: repeating-radial-gradient(ellipse at 60% 50%, var(--accent) 0 2px, transparent 3px 15px); -webkit-mask-image: radial-gradient(ellipse, #000, transparent 70%); mask-image: radial-gradient(ellipse, #000, transparent 70%); }
-.studio-photo { position: relative; z-index: 1; width: 100%; max-height: 420px; display: block; object-fit: cover; border-radius: 6px; }
+.guide-about { position: relative; z-index: 1; width: min(72%, 610px); margin: 0 0 44px; font-size: 19px; line-height: 2.05; letter-spacing: .075em; }
+.guide-flora { right: -8%; top: 110px; width: 51%; height: 440px; background: url('/decor/guide-botanical-v3.webp') right center / contain no-repeat; opacity: .55; filter: saturate(.86) contrast(.96); }
+.studio-photo { position: relative; z-index: 1; width: 100%; max-height: 340px; aspect-ratio: 2.65 / 1; display: block; object-fit: cover; object-position: center 40%; border-radius: 5px; }
 .guide-catalogue { padding: 56px var(--gutter) 44px; }
 .chapter-list { margin: 26px 0 48px; }
 .chapter-row { display: grid; grid-template-columns: 110px 1fr 270px 60px; align-items: center; gap: 24px; min-height: 212px; color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
 .chapter-row__number { align-self: center; padding-right: 28px; color: var(--accent); border-right: 1px solid var(--accent); font-size: 66px; font-style: italic; font-weight: 300; }
-.chapter-row__copy strong { display: block; margin-bottom: 20px; font-size: 35px; font-weight: 500; letter-spacing: .08em; }
-.chapter-row__copy small { font-size: 17px; line-height: 1.9; white-space: nowrap; }
+.chapter-row__copy strong { display: block; margin-bottom: 12px; font-size: 35px; font-weight: 500; line-height: 1.25; letter-spacing: .08em; }
+.chapter-row__copy small { display: block; font-size: 16px; line-height: 1.75; }
+.chapter-row__artist { color: var(--accent-deep); letter-spacing: .08em; }
+.chapter-row__description { margin-top: 3px; color: var(--muted); }
 .chapter-row img { width: 100%; height: 150px; object-fit: cover; border-radius: 3px; }
 .round-arrow { width: 54px; height: 54px; display: grid; place-items: center; color: var(--accent-deep); border: 1px solid currentColor; border-radius: 50%; }
 
@@ -91,30 +94,47 @@
 .work-pagination a:last-child { color: white; background: linear-gradient(100deg, #8187c4, #7078b5); }
 .work-pagination i { background: var(--line); }
 
-@media (max-width: 700px) {
+@media (min-width: 541px) and (max-width: 760px) {
+  :root { --gutter: 30px; }
+  .guide-intro { padding-top: 20px; }
+  .guide-intro > h1 { margin-bottom: 42px; font-size: 58px; }
+  .guide-about { width: 76%; font-size: 17px; }
+  .studio-photo { max-height: 290px; aspect-ratio: 2.25 / 1; }
+  .guide-catalogue { padding-top: 46px; }
+  .chapter-row { grid-template-columns: 72px minmax(170px, 1fr) 150px 44px; gap: 13px; min-height: 170px; }
+  .chapter-row__number { padding-right: 14px; font-size: 48px; }
+  .chapter-row__copy strong { margin-bottom: 7px; font-size: 28px; }
+  .chapter-row__copy small { font-size: 14px; line-height: 1.6; }
+  .chapter-row img { height: 108px; }
+  .round-arrow { width: 42px; height: 42px; }
+}
+
+@media (max-width: 540px) {
   :root { --gutter: 24px; }
   .page--home { grid-template-rows: 52% 48%; }
   .home-copy { padding-top: 26px; }
   .home-copy h1 { margin-bottom: 10px; font-size: 44px; }
   .home-copy p { font-size: 14px; line-height: 1.7; }
-  .home-copy > i { margin-top: 22px; }
+  .home-subtitle { gap: 9px; }
+  .home-subtitle i { width: 7px; height: 7px; }
   .enter-button { right: 24px; bottom: 38px; width: 58%; height: 70px; font-size: 19px; }
-  .home-flora { width: 78%; height: 28%; opacity: .5; }
+  .home-flora { left: -4%; width: 108%; height: 30%; opacity: .7; }
   .site-header { padding-top: 30px; }
   .guide-intro { padding-top: 16px; }
   .guide-intro > h1 { margin-bottom: 36px; font-size: 52px; }
   .section-title { font-size: 23px; gap: 22px; }
   .guide-subtitle { font-size: 15px; line-height: 1.7; }
-  .guide-about { width: 78%; margin-bottom: 32px; font-size: 16px; line-height: 2; }
-  .guide-flora { right: -100px; top: 210px; }
-  .studio-photo { height: auto; max-height: none; }
+  .guide-about { width: 84%; margin-bottom: 32px; font-size: 15px; line-height: 1.95; }
+  .guide-flora { right: -18%; top: 92px; width: 67%; height: 360px; opacity: .5; }
+  .studio-photo { height: 260px; max-height: 260px; aspect-ratio: auto; object-position: center 40%; }
   .guide-catalogue { padding-top: 42px; }
-  .chapter-row { grid-template-columns: 54px minmax(92px, 1fr) 96px 38px; gap: 8px; min-height: 142px; }
+  .chapter-row { grid-template-columns: 50px minmax(118px, 1fr) 84px 34px; gap: 8px; min-height: 138px; }
   .chapter-row__number { padding-right: 8px; font-size: 40px; }
-  .chapter-row__copy strong { margin: 0; font-size: 20px; line-height: 1.5; }
-  .chapter-row__copy small { display: none; }
-  .chapter-row img { height: 88px; }
-  .round-arrow { width: 38px; height: 38px; }
+  .chapter-row__copy strong { margin: 0 0 4px; font-size: 21px; line-height: 1.35; }
+  .chapter-row__copy small { font-size: 12px; line-height: 1.5; }
+  .chapter-row__description { display: none !important; }
+  .chapter-row img { height: 78px; }
+  .round-arrow { width: 34px; height: 34px; }
   .chapter-heading { padding-top: 34px; }
   .chapter-heading h1 { font-size: 46px; }
   .chapter-intro { width: 100%; margin-top: 24px; font-size: 16px; }

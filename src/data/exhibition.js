@@ -4,30 +4,33 @@ export const chapters = [
     number: '01',
     title: '师之道',
     catalogTitle: '师之道——董日福油画作品',
+    artistLabel: '董日福油画作品',
     description: '董日福与陈致远：\n观看、色彩与笔触的传递',
     short: '董日福与陈致远：观看、色彩与笔触的传递',
     intro: '本章重点呈现董日福的油画作品。作为陈致远的老师，董日福以奔放的笔触、鲜明的色彩与坚实的造型，为这段师承关系奠定了重要的绘画根基。',
-    image: '/artworks/dong-harbor-main.webp',
+    image: '/artworks/dong-harbor-main-thumb.webp',
   },
   {
     id: 'study',
     number: '02',
     title: '学之路',
     catalogTitle: '学之路——陈致远油画作品',
+    artistLabel: '陈致远油画作品',
     description: '从临摹、写生到\n个人感受的形成',
     short: '从临摹、写生到个人感受的形成',
     intro: '本章呈现陈致远的油画作品。由董日福的教学与创作经验出发，陈致远在持续写生中形成了更细腻、偏向印象派的光色表达。',
-    image: '/artworks/chen-lane.webp',
+    image: '/artworks/chen-lane-thumb.webp',
   },
   {
     id: 'voices',
     number: '03',
     title: '各自成章',
     catalogTitle: '各自成章——学生作品',
+    artistLabel: '学生作品',
     description: '不同年龄与经验中的\n独立风景',
     short: '不同年龄与经验中的独立风景',
     intro: '年龄和经验各不相同，面对画布时却拥有同样真诚的起点。本章汇集成年、大学、中学及小学阶段的学生作品，呈现各自正在形成的视觉语言。',
-    image: '/artworks/studio-wall.png',
+    image: '/artworks/studio-wall-thumb.webp',
   },
 ];
 
@@ -40,7 +43,8 @@ export const works = [
     year: '资料待补',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/dong-harbor-main.webp',
+    thumbnail: '/artworks/dong-harbor-main-thumb.webp',
+    image: '/artworks/dong-harbor-main-large.webp',
     description: '渔船、码头与沿岸建筑在高饱和度色彩中相互交叠。奔放的笔触强化了港湾的节奏，也让生活场景呈现出明亮而有力的情绪。',
   },
   {
@@ -51,7 +55,8 @@ export const works = [
     year: '资料待补',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/dong-blue-harbor.jpg',
+    thumbnail: '/artworks/dong-blue-harbor-thumb.webp',
+    image: '/artworks/dong-blue-harbor-large.webp',
     description: '蓝紫色的天空、建筑与水面构成统一基调，橙红与绿色在其中跳跃。画家以概括的造型和强烈冷暖对比，重组港湾的空间与光线。',
   },
   {
@@ -62,7 +67,8 @@ export const works = [
     year: '2026',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/chen-temple.webp',
+    thumbnail: '/artworks/chen-temple-thumb.webp',
+    image: '/artworks/chen-temple-large.webp',
     description: '阳光斜照庙埕，风轻拂过屋脊与香烟，光影在石板上流动。画面以厚笔触记录地方记忆，传递午后宁静与人文温度。',
   },
   {
@@ -73,7 +79,8 @@ export const works = [
     year: '2015',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/chen-lane.webp',
+    thumbnail: '/artworks/chen-lane-thumb.webp',
+    image: '/artworks/chen-lane-large.webp',
     description: '砖墙、门楼与树影以坚实而奔放的笔触交织，色彩在冷暖之间建立街巷深处的空间与时间感。',
   },
   {
@@ -84,7 +91,8 @@ export const works = [
     year: '资料待补',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/wu-rabbit.webp',
+    thumbnail: '/artworks/wu-rabbit-thumb.webp',
+    image: '/artworks/wu-rabbit-large.webp',
     description: '白兔安静地停驻在草丛之中，柔和的粉白色与深沉的植物色调形成对照。作品资料将在后续补充。',
   },
   {
@@ -95,7 +103,8 @@ export const works = [
     year: '资料待补',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/wu-times-square.webp',
+    thumbnail: '/artworks/wu-times-square-thumb.webp',
+    image: '/artworks/wu-times-square-large.webp',
     description: '明亮的车流、广告屏幕与城市建筑交织成高密度的都市景象。作品资料将在后续补充。',
   },
   {
@@ -106,7 +115,8 @@ export const works = [
     year: '资料待补',
     size: '尺寸待补',
     medium: '布面油画',
-    image: '/artworks/wu-summer-amoy.webp',
+    thumbnail: '/artworks/wu-summer-amoy-thumb.webp',
+    image: '/artworks/wu-summer-amoy-large.webp',
     description: '雕塑、建筑与繁茂植物被组织进鲜明的冷暖色彩之中，呈现厦门夏日充沛而明亮的气息。作品资料将在后续补充。',
   },
 ];
@@ -114,5 +124,5 @@ export const works = [
 export const exhibition = {
   title: '光而不耀',
   subtitle: '董日福・陈致远｜师生油画作品展',
-  about: '本次展览以董日福的油画作品为核心。董日福是陈致远的老师，其作品构成展览中最重要的艺术脉络；陈致远作为次级参展艺术家，呈现其在师承基础上形成的个人表达；最后展出由陈致远指导的学生作品，展现绘画学习在不同年龄与经验中的延续。',
+  about: '本次展览由董日福老师的作品徐徐展开。作为陈致远老师艺术道路上的重要引路人，董老师以鲜明的色彩与充满生命力的笔触，为这场展览带来深厚而珍贵的起点。沿着这份启发，陈致远老师以更细腻的光色感受回应自然与生活；由他指导的学生们，也在各自的年龄与经验中，逐渐找到属于自己的观看与表达。三组作品彼此相望，共同呈现绘画如何在陪伴、学习与创作中继续生长。',
 };
