@@ -5,11 +5,40 @@
     "about": "本次展览由董日福老师的作品徐徐展开。作为陈致远老师艺术道路上的重要引路人，董老师以鲜明的色彩与充满生命力的笔触，为这场展览带来深厚而珍贵的起点。沿着这份启发，陈致远老师以更细腻的光色感受回应自然与生活；由他指导的学生们，也在各自的年龄与经验中，逐渐找到属于自己的观看与表达。三组作品彼此相望，共同呈现绘画如何在陪伴、学习与创作中继续生长。"
   },
   "copy": {
-    "home": {"enterButton":"进入展览","heroAria":"展览主视觉","heroAlt":"陈致远庙埕街景油画"},
-    "guide": {"headerTitle":"首页","pageTitle":"展览导览","aboutHeading":"关于展览","catalogHeading":"作品目录","studioAlt":"画室作品墙"},
-    "chapter": {"chapterLabel":"CHAPTER","worksHeading":"本章作品","emptyText":"作品资料整理中","workCardAction":"点击观看作品"},
-    "detail": {"headerTitle":"作品详情","yearLabel":"创作年份","sizeLabel":"尺寸","mediumLabel":"材料","descriptionHeading":"作品简介","previousLabel":"上一件","nextLabel":"下一件"},
-    "chrome": {"guideToggle":"导览","catalogTitle":"目录","catalogDescription":"展览简介与作品目录","backLabel":"返回","menuLabel":"打开目录"}
+    "home": {
+      "enterButton": "进入展览",
+      "heroAria": "展览主视觉",
+      "heroAlt": "陈致远庙埕街景油画"
+    },
+    "guide": {
+      "headerTitle": "首页",
+      "pageTitle": "展览导览",
+      "aboutHeading": "关于展览",
+      "catalogHeading": "作品目录",
+      "studioAlt": "画室作品墙"
+    },
+    "chapter": {
+      "chapterLabel": "CHAPTER",
+      "worksHeading": "本章作品",
+      "emptyText": "作品资料整理中",
+      "workCardAction": "点击观看作品"
+    },
+    "detail": {
+      "headerTitle": "作品详情",
+      "yearLabel": "创作年份",
+      "sizeLabel": "尺寸",
+      "mediumLabel": "材料",
+      "descriptionHeading": "作品简介",
+      "previousLabel": "上一件",
+      "nextLabel": "下一件"
+    },
+    "chrome": {
+      "guideToggle": "导览",
+      "catalogTitle": "目录",
+      "catalogDescription": "展览简介与作品目录",
+      "backLabel": "返回",
+      "menuLabel": "打开目录"
+    }
   },
   "chapters": [
     {
