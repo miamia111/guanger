@@ -4,5 +4,6 @@ assets/
 tools/
 outputs/
 scripts/
+src/data/*.backup-*.json
 .DS_Store
 *.log
