@@ -18,7 +18,10 @@ function chapterRows() {
 
 function homeView() {
   return `<main class="page page--home">
-    <section class="home-art" aria-label="展览主视觉"><div class="cropped-temple"><img src="${assetUrl('/artworks/chen-temple-large.webp')}" alt="陈致远庙埕街景油画" fetchpriority="high" decoding="async" /></div></section>
+    <section class="home-art" aria-label="展览主视觉"><div class="cropped-temple"><picture>
+      <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/chen-temple-home-720.webp')}" />
+      <img src="${assetUrl('/artworks/chen-temple-home-1080.webp')}" width="1080" height="931" alt="陈致远庙埕街景油画" loading="eager" fetchpriority="high" decoding="async" />
+    </picture></div></section>
     <section class="home-copy">
       <h1>${exhibition.title}</h1>
       <div class="home-subtitle"><i aria-hidden="true"></i><p>${exhibition.subtitle}</p></div>

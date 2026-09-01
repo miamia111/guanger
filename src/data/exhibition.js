@@ -1,4 +1,9 @@
-export const chapters = [
+import data from './exhibition.json';
+
+export const { exhibition, chapters, works } = data;
+
+/* Legacy data retained below only for source history.
+const legacyChapters = [
   {
     id: 'mastery',
     number: '01',
@@ -34,7 +39,7 @@ export const chapters = [
   },
 ];
 
-export const works = [
+const legacyWorks = [
   {
     id: 'fishing-harbor',
     chapter: 'mastery',
@@ -121,8 +126,9 @@ export const works = [
   },
 ];
 
-export const exhibition = {
+const legacyExhibition = {
   title: '光而不耀',
   subtitle: '董日福・陈致远｜师生油画作品展',
   about: '本次展览由董日福老师的作品徐徐展开。作为陈致远老师艺术道路上的重要引路人，董老师以鲜明的色彩与充满生命力的笔触，为这场展览带来深厚而珍贵的起点。沿着这份启发，陈致远老师以更细腻的光色感受回应自然与生活；由他指导的学生们，也在各自的年龄与经验中，逐渐找到属于自己的观看与表达。三组作品彼此相望，共同呈现绘画如何在陪伴、学习与创作中继续生长。',
 };
+*/

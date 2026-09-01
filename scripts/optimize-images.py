@@ -9,6 +9,7 @@ SOURCE_DIR = PROJECT_DIR / "assets" / "originals"
 OUTPUT_DIR = PROJECT_DIR / "public" / "artworks"
 THUMB_LONG_EDGE = 720
 LARGE_LONG_EDGE = 1800
+DECOR_DIR = PROJECT_DIR / "public" / "decor"
 
 
 def resized(image: Image.Image, long_edge: int) -> Image.Image:
@@ -41,6 +42,21 @@ def main() -> None:
             save_variant(image, thumb, THUMB_LONG_EDGE, 78)
             save_variant(image, large, LARGE_LONG_EDGE, 82)
             print(f"{source.name} -> {thumb.name}, {large.name}")
+
+    # UI assets have dedicated display-sized variants. Keeping these separate
+    # prevents a small button or translucent ornament from downloading a
+    # multi-megabyte source image on first visit.
+    ui_variants = [
+        (DECOR_DIR / "button-paint-texture.png", DECOR_DIR / "button-paint-texture.webp", 720, 68),
+        (DECOR_DIR / "lavender-landscape-v2.webp", DECOR_DIR / "lavender-landscape-mobile.webp", 960, 66),
+        (DECOR_DIR / "guide-botanical-v3.webp", DECOR_DIR / "guide-botanical-mobile.webp", 560, 66),
+        (OUTPUT_DIR / "chen-temple-large.webp", OUTPUT_DIR / "chen-temple-home-720.webp", 720, 70),
+        (OUTPUT_DIR / "chen-temple-large.webp", OUTPUT_DIR / "chen-temple-home-1080.webp", 1080, 72),
+    ]
+    for source, destination, long_edge, quality in ui_variants:
+        with Image.open(source) as opened:
+            save_variant(ImageOps.exif_transpose(opened), destination, long_edge, quality)
+        print(f"{source.name} -> {destination.name}")
 
 
 if __name__ == "__main__":

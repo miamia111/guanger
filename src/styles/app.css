@@ -2,18 +2,19 @@
 .page--guide, .page--chapter, .page--detail { background-color: #e2dcd2; }
 .home-art { min-height: 0; overflow: hidden; }
 .home-art .cropped-temple { width: 100%; height: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 0 88%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0 88%, transparent 100%); }
-.home-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 50%; }
+.home-art picture, .home-art img { width: 100%; height: 100%; display: block; }
+.home-art img { object-fit: cover; object-position: center 50%; }
 .home-copy { position: relative; z-index: 2; padding: 48px var(--gutter) 40px; }
 .home-copy h1 { margin: 0 0 15px; font-family: STSong, "Songti SC", "Noto Serif SC", SimSun, serif; font-size: clamp(54px, 8vw, 76px); font-weight: 400; line-height: 1.12; letter-spacing: .2em; }
 .home-subtitle { display: flex; align-items: center; gap: 13px; }
 .home-copy p { margin: 0; color: #7379b3; font-family: STSong, "Songti SC", var(--serif); font-size: clamp(17px, 2.8vw, 24px); letter-spacing: .12em; }
 .home-subtitle i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #858ac2; }
-.enter-button { position: absolute; right: var(--gutter); bottom: 64px; width: min(52vw, 510px); height: 118px; display: flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid rgba(86, 92, 153, .72); color: white; text-decoration: none; background-image: linear-gradient(rgba(96,103,164,.22), rgba(86,93,153,.24)), url('/decor/button-paint-texture.png'); background-size: cover; background-position: center; box-shadow: inset 0 0 0 6px rgba(255,255,255,.08), 0 16px 34px rgba(75,76,121,.24); font-family: STSong, "Songti SC", var(--serif); font-size: 34px; font-weight: 400; letter-spacing: .22em; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
+.enter-button { position: absolute; right: var(--gutter); bottom: 64px; width: min(52vw, 510px); height: 118px; display: flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid rgba(86, 92, 153, .72); color: white; text-decoration: none; background-color: #7379b3; background-image: linear-gradient(rgba(96,103,164,.22), rgba(86,93,153,.24)), url('/decor/button-paint-texture.webp'); background-size: cover; background-position: center; box-shadow: inset 0 0 0 6px rgba(255,255,255,.08), 0 16px 34px rgba(75,76,121,.24); font-family: STSong, "Songti SC", var(--serif); font-size: 34px; font-weight: 400; letter-spacing: .22em; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
 .enter-button:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 5px rgba(255,255,255,.1), 0 16px 34px rgba(75,76,121,.26); }
 .enter-button:disabled { opacity: .72; cursor: wait; }
 .enter-button span { font-size: 12px; }
 .home-flora, .guide-flora { position: absolute; pointer-events: none; }
-.home-flora { z-index: 1; left: -3%; bottom: -1%; width: 103%; height: 34%; background: url('/decor/lavender-landscape-v2.webp') left bottom / 112% auto no-repeat; opacity: .72; filter: saturate(.78) contrast(.96); }
+.home-flora { z-index: 1; left: -3%; bottom: -1%; width: 103%; height: 34%; background: url('/decor/lavender-landscape-mobile.webp') left bottom / 112% auto no-repeat; opacity: .72; filter: saturate(.78) contrast(.96); }
 
 .site-header { position: relative; padding: 46px var(--gutter) 26px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
 .site-header .wordmark { color: var(--ink); text-decoration: none; font-size: 27px; letter-spacing: .14em; }
@@ -29,7 +30,7 @@
 .section-title .diamond { margin-left: -35px; }
 .guide-subtitle { margin: 0 0 25px; color: var(--accent-deep); font-size: 18px; letter-spacing: .08em; }
 .guide-about { position: relative; z-index: 1; width: min(72%, 610px); margin: 0 0 44px; font-size: 19px; line-height: 2.05; letter-spacing: .075em; }
-.guide-flora { right: -8%; top: 110px; width: 51%; height: 440px; background: url('/decor/guide-botanical-v3.webp') right center / contain no-repeat; opacity: .55; filter: saturate(.86) contrast(.96); }
+.guide-flora { right: -8%; top: 110px; width: 51%; height: 440px; background: url('/decor/guide-botanical-mobile.webp') right center / contain no-repeat; opacity: .55; filter: saturate(.86) contrast(.96); }
 .studio-photo { position: relative; z-index: 1; width: 100%; max-height: 340px; aspect-ratio: 2.65 / 1; display: block; object-fit: cover; object-position: center 40%; border-radius: 5px; }
 .guide-catalogue { padding: 56px var(--gutter) 44px; }
 .chapter-list { margin: 26px 0 48px; }
