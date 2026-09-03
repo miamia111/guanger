@@ -10,6 +10,19 @@ const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, ''
 const pageCopy = (section, key, fallback) => copy[section]?.[key] ?? fallback;
 let disposePage = () => {};
 
+async function importWithRetry(loader, retries = 2) {
+  let lastError;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      return await loader();
+    } catch (error) {
+      lastError = error;
+      if (attempt < retries) await new Promise((resolve) => setTimeout(resolve, (attempt + 1) * 800));
+    }
+  }
+  throw lastError;
+}
+
 function chapterRows() {
   return chapters.map((chapter) => `<a class="chapter-row" href="#/chapter/${chapter.id}">
     <span class="chapter-row__number">${chapter.number}</span>
@@ -120,7 +133,7 @@ function render() {
     let cancelled = false;
     let disposeDepth = () => {};
     disposePage = () => { cancelled = true; disposeDepth(); };
-    import('./components/depthTransition.js').then(({ mountHomeDepthExperience }) => {
+    importWithRetry(() => import('./components/depthTransition.js')).then(({ mountHomeDepthExperience }) => {
       if (cancelled) return;
       disposeDepth = mountHomeDepthExperience(homeDepthRoot, {
         artwork: assetUrl('/artworks/chen-temple-home-1080.webp'),

@@ -1,13 +1,22 @@
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 const easePaint = (t) => 1 - Math.pow(1 - t, 2.4);
 
-function loadImage(source) {
+function loadImage(source, retries = 2) {
   return new Promise((resolve, reject) => {
-    const image = new Image();
-    image.decoding = 'async';
-    image.addEventListener('load', () => resolve(image), { once: true });
-    image.addEventListener('error', reject, { once: true });
-    image.src = source;
+    const attempt = (remaining) => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.addEventListener('load', () => resolve(image), { once: true });
+      image.addEventListener('error', (error) => {
+        if (remaining <= 0) {
+          reject(error);
+          return;
+        }
+        setTimeout(() => attempt(remaining - 1), (retries - remaining + 1) * 700);
+      }, { once: true });
+      image.src = source;
+    };
+    attempt(retries);
   });
 }
 

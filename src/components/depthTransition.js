@@ -2,14 +2,51 @@ import * as THREE from 'three';
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 
-function loadImage(source) {
+function loadImage(source, retries = 2) {
   return new Promise((resolve, reject) => {
-    const image = new Image();
-    image.decoding = 'async';
-    image.addEventListener('load', () => resolve(image), { once: true });
-    image.addEventListener('error', reject, { once: true });
-    image.src = source;
+    const attempt = (remaining) => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.addEventListener('load', () => resolve(image), { once: true });
+      image.addEventListener('error', (error) => {
+        if (remaining <= 0) {
+          reject(error);
+          return;
+        }
+        setTimeout(() => attempt(remaining - 1), (retries - remaining + 1) * 700);
+      }, { once: true });
+      image.src = source;
+    };
+    attempt(retries);
   });
+}
+
+function loadTexture(source, retries = 2) {
+  return new Promise((resolve, reject) => {
+    const attempt = (remaining) => {
+      new THREE.TextureLoader().load(source, resolve, undefined, (error) => {
+        if (remaining <= 0) {
+          reject(error);
+          return;
+        }
+        setTimeout(() => attempt(remaining - 1), (retries - remaining + 1) * 700);
+      });
+    };
+    attempt(retries);
+  });
+}
+
+function createRenderer(canvas, pixelRatio) {
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  } catch {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+  }
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, pixelRatio));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.setClearColor(0x000000, 0);
+  return renderer;
 }
 
 function createFeatherTexture() {
@@ -105,10 +142,11 @@ export function mountHomeDepthExperience(root, options) {
 
   const loadAssets = () => {
     if (!assetsPromise) {
-      const texture = new Promise((resolve, reject) => {
-        new THREE.TextureLoader().load(options.artwork, resolve, undefined, reject);
-      });
-      assetsPromise = Promise.all([texture, loadImage(options.depthMap), loadImage(options.backdrop)]);
+      assetsPromise = Promise.all([
+        loadTexture(options.artwork),
+        loadImage(options.depthMap),
+        loadImage(options.backdrop),
+      ]);
     }
     return assetsPromise;
   };
@@ -140,10 +178,7 @@ export function mountHomeDepthExperience(root, options) {
   if (!reduceMotion.matches) {
     loadAssets().then(([texture, depthImage]) => {
       if (disposed) return;
-      heroRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-      heroRenderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.25));
-      heroRenderer.outputColorSpace = THREE.SRGBColorSpace;
-      heroRenderer.setClearColor(0x000000, 0);
+      heroRenderer = createRenderer(canvas, 1.25);
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(40, 1, .1, 30);
       const depth = createDepthMesh(texture, depthImage, options.dimensions);
@@ -216,10 +251,7 @@ export function mountHomeDepthExperience(root, options) {
     let transitionMaterial;
     try {
       const [texture, depthImage] = await loadAssets();
-      transitionRenderer = new THREE.WebGLRenderer({ canvas: transitionCanvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-      transitionRenderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.4));
-      transitionRenderer.outputColorSpace = THREE.SRGBColorSpace;
-      transitionRenderer.setClearColor(0x000000, 0);
+      transitionRenderer = createRenderer(transitionCanvas, 1.4);
       transitionRenderer.setSize(innerWidth, innerHeight, false);
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, .1, 30);
