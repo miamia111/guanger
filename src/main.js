@@ -3,7 +3,8 @@ import './styles/app.css';
 import { exhibition, chapters, works, copy } from './data/exhibition.js';
 import { header, guidePanel, bindChrome, rule } from './components/chrome.js';
 import { icons } from './components/icons.js';
-import { mountHomePaintReveal, mountPaintReveal } from './components/paintReveal.js';
+import { mountPaintReveal } from './components/paintReveal.js';
+import { mountHomeDepthExperience } from './components/depthTransition.js';
 
 const app = document.querySelector('#app');
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
@@ -21,12 +22,12 @@ function chapterRows() {
 
 function homeView() {
   return `<main class="page page--home">
-    <section class="home-art" aria-label="${pageCopy('home', 'heroAria', '展览主视觉')}"><div class="cropped-temple" data-image-frame><picture>
+    <section class="home-art" aria-label="${pageCopy('home', 'heroAria', '展览主视觉')}"><div class="cropped-temple" data-image-frame data-home-depth-root><picture>
       <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/chen-temple-home-720.webp')}" />
       <img src="${assetUrl('/artworks/chen-temple-home-1080.webp')}" width="1080" height="931" alt="${pageCopy('home', 'heroAlt', '陈致远庙埕街景油画')}" loading="eager" fetchpriority="high" decoding="async" />
-    </picture><span class="image-loader image-loader--hero" aria-hidden="true"><i></i><b>作品载入中</b></span><canvas class="home-paint-reveal" data-home-paint aria-hidden="true"></canvas></div></section>
+    </picture><span class="image-loader image-loader--hero" aria-hidden="true"><i></i><b>作品载入中</b></span><canvas class="home-depth-canvas" data-home-depth aria-hidden="true"></canvas></div></section>
     <section class="home-copy">
-      <h1>${exhibition.title}</h1>
+      <h1 aria-label="${exhibition.title}"><span class="home-title-line home-title-line--first">${exhibition.title.slice(0, 2)}</span><span class="home-title-line home-title-line--second">${exhibition.title.slice(2)}</span></h1>
       <div class="home-subtitle"><i aria-hidden="true"></i><p>${exhibition.subtitle}</p></div>
       <a class="enter-button" href="#/guide">${pageCopy('home', 'enterButton', '进入展览')} <span>◇</span></a>
     </section>
@@ -109,14 +110,13 @@ function render() {
       image.addEventListener('error', fail, { once: true });
     }
   });
-  const homeCanvas = app.querySelector('[data-home-paint]');
-  if (homeCanvas) {
-    disposePage = mountHomePaintReveal(homeCanvas, {
+  const homeDepthRoot = app.querySelector('[data-home-depth-root]');
+  if (homeDepthRoot) {
+    disposePage = mountHomeDepthExperience(homeDepthRoot, {
       artwork: assetUrl('/artworks/chen-temple-home-1080.webp'),
-      impasto: assetUrl('/prototype/brush-impasto.webp'),
-      dry: assetUrl('/prototype/brush-dry.webp'),
-      impastoRelief: assetUrl('/prototype/brush-impasto-relief.webp'),
-      dryRelief: assetUrl('/prototype/brush-dry-relief.webp'),
+      depthMap: assetUrl('/prototype/temple-depth-v1.png'),
+      backdrop: assetUrl('/prototype/gray-blue-impasto-v1.png'),
+      dimensions: { width: 1080, height: 931 },
     });
   }
   const detailCanvas = app.querySelector('[data-detail-paint]');
