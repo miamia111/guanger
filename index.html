@@ -8,7 +8,10 @@
     <title>光而不耀｜师生油画作品展</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"><div class="boot-loader" role="status" aria-live="polite"><span><i></i></span><p>正在进入展览</p></div></div>
+    <style>
+      .boot-loader{position:fixed;inset:0;display:grid;place-content:center;justify-items:center;gap:22px;color:#68739f;background:#e2dcd2;font-family:STSong,"Songti SC",SimSun,serif}.boot-loader span{position:relative;width:84px;height:9px;overflow:hidden;background:rgba(112,121,174,.13);transform:skewX(-14deg)}.boot-loader i{position:absolute;inset:0;background:#747db9;transform:translateX(-115%);animation:boot-brush 1.65s cubic-bezier(.62,0,.28,1) infinite}.boot-loader p{margin:0;font-size:18px;letter-spacing:.28em}@keyframes boot-brush{0%{transform:translateX(-115%)}58%,100%{transform:translateX(115%)}}
+    </style>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

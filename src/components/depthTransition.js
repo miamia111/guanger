@@ -83,6 +83,7 @@ function fitDistance(camera, planeWidth, planeHeight, mode = 'cover') {
 export function mountHomeDepthExperience(root, options) {
   const canvas = root?.querySelector('[data-home-depth]');
   const trigger = document.querySelector('.enter-button');
+  const page = root?.closest('.page--home');
   if (!root || !canvas || !trigger) return () => {};
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -94,13 +95,20 @@ export function mountHomeDepthExperience(root, options) {
   let heroGeometry;
   let heroMaterial;
   let assetsPromise;
+  const guideAssetsPromise = Promise.allSettled([...new Set(options.guideAssets || [])].map(loadImage));
+
+  const revealHome = () => {
+    if (!page || disposed) return;
+    page.classList.remove('is-home-loading');
+    page.classList.add('is-home-ready');
+  };
 
   const loadAssets = () => {
     if (!assetsPromise) {
       const texture = new Promise((resolve, reject) => {
         new THREE.TextureLoader().load(options.artwork, resolve, undefined, reject);
       });
-      assetsPromise = Promise.all([texture, loadImage(options.depthMap)]);
+      assetsPromise = Promise.all([texture, loadImage(options.depthMap), loadImage(options.backdrop)]);
     }
     return assetsPromise;
   };
@@ -165,9 +173,17 @@ export function mountHomeDepthExperience(root, options) {
         heroRenderer.render(scene, camera);
         canvas.classList.add('is-ready');
         root.classList.add('is-depth-ready');
+        revealHome();
       };
       heroFrame = requestAnimationFrame(renderHero);
-    }).catch(() => canvas.classList.add('is-unavailable'));
+    }).catch(() => {
+      canvas.classList.add('is-unavailable');
+      revealHome();
+    });
+  } else {
+    Promise.all([loadImage(options.artwork), loadImage(options.depthMap), loadImage(options.backdrop)])
+      .catch(() => {})
+      .finally(revealHome);
   }
 
   const playTransition = async (event) => {
@@ -175,7 +191,11 @@ export function mountHomeDepthExperience(root, options) {
     if (transitioning) return;
     requestMotionPermission();
     if (reduceMotion.matches) {
-      location.hash = '#/guide';
+      transitioning = true;
+      trigger.setAttribute('aria-disabled', 'true');
+      page?.classList.add('is-home-loading');
+      await guideAssetsPromise;
+      if (!disposed) location.hash = '#/guide';
       return;
     }
     transitioning = true;
@@ -244,6 +264,8 @@ export function mountHomeDepthExperience(root, options) {
       await new Promise((resolve) => setTimeout(resolve, 900));
     }
 
+    await guideAssetsPromise;
+    if (disposed) return;
     location.hash = '#/guide';
     requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('is-leaving')));
     setTimeout(() => {

@@ -4,7 +4,6 @@ import { exhibition, chapters, works, copy } from './data/exhibition.js';
 import { header, guidePanel, bindChrome, rule } from './components/chrome.js';
 import { icons } from './components/icons.js';
 import { mountPaintReveal } from './components/paintReveal.js';
-import { mountHomeDepthExperience } from './components/depthTransition.js';
 
 const app = document.querySelector('#app');
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
@@ -21,7 +20,11 @@ function chapterRows() {
 }
 
 function homeView() {
-  return `<main class="page page--home">
+  return `<main class="page page--home is-home-loading">
+    <div class="home-loading-screen" role="status" aria-live="polite">
+      <span class="home-loading-mark" aria-hidden="true"><i></i></span>
+      <p>正在进入展览</p>
+    </div>
     <section class="home-art" aria-label="${pageCopy('home', 'heroAria', '展览主视觉')}"><div class="cropped-temple" data-image-frame data-home-depth-root><picture>
       <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/chen-temple-home-720.webp')}" />
       <img src="${assetUrl('/artworks/chen-temple-home-1080.webp')}" width="1080" height="931" alt="${pageCopy('home', 'heroAlt', '陈致远庙埕街景油画')}" loading="eager" fetchpriority="high" decoding="async" />
@@ -45,7 +48,7 @@ function guideView() {
       <p class="guide-subtitle">${exhibition.subtitle}</p>
       <p class="guide-about">${exhibition.about}</p>
       <div class="guide-flora" aria-hidden="true"></div>
-      <div class="studio-photo-frame" data-image-frame><img class="studio-photo" src="${assetUrl('/artworks/studio-wall-large.webp')}" alt="${pageCopy('guide', 'studioAlt', '画室作品墙')}" loading="lazy" decoding="async" /><span class="image-loader" aria-hidden="true"><i></i><b>作品载入中</b></span></div>
+      <div class="studio-photo-frame" data-image-frame><picture><source media="(max-width: 600px)" srcset="${assetUrl('/artworks/studio-thumb.webp')}" /><img class="studio-photo" src="${assetUrl('/artworks/studio-large.webp')}" width="1800" height="1350" alt="${pageCopy('guide', 'studioAlt', '画室作品墙')}" loading="lazy" decoding="async" /></picture><span class="image-loader" aria-hidden="true"><i></i><b>作品载入中</b></span></div>
     </section>
     <section class="guide-catalogue">
       <h2 class="section-title">${icons.diamond} ${pageCopy('guide', 'catalogHeading', '作品目录')}</h2>
@@ -79,8 +82,10 @@ function detailView(work) {
       <p class="detail-chapter">${chapter.title}</p>
       <h1>${work.title}</h1>
       <h2>${work.artist}</h2>
-      <dl class="metadata"><div><dt>${pageCopy('detail', 'yearLabel', '创作年份')}</dt><dd>${work.year}</dd></div><div><dt>${pageCopy('detail', 'sizeLabel', '尺寸')}</dt><dd>${work.size}</dd></div><div><dt>${pageCopy('detail', 'mediumLabel', '材料')}</dt><dd>${work.medium}</dd></div></dl>
-      <section class="work-description"><h3>${pageCopy('detail', 'descriptionHeading', '作品简介')}</h3><p>${work.description}</p></section>
+      <div class="detail-info-card">
+        <dl class="metadata"><div><dt>${pageCopy('detail', 'yearLabel', '创作年份')}</dt><dd>${work.year}</dd></div><div><dt>${pageCopy('detail', 'sizeLabel', '尺寸')}</dt><dd>${work.size}</dd></div><div><dt>${pageCopy('detail', 'mediumLabel', '材料')}</dt><dd>${work.medium}</dd></div></dl>
+        <section class="work-description"><h3>${pageCopy('detail', 'descriptionHeading', '作品简介')}</h3><p>${work.description}</p></section>
+      </div>
       <nav class="work-pagination"><a href="#/work/${previous.id}">‹　${pageCopy('detail', 'previousLabel', '上一件')}</a><i></i><a href="#/work/${next.id}">${pageCopy('detail', 'nextLabel', '下一件')}　›</a></nav>
     </article>
   </main>`;
@@ -112,11 +117,26 @@ function render() {
   });
   const homeDepthRoot = app.querySelector('[data-home-depth-root]');
   if (homeDepthRoot) {
-    disposePage = mountHomeDepthExperience(homeDepthRoot, {
-      artwork: assetUrl('/artworks/chen-temple-home-1080.webp'),
-      depthMap: assetUrl('/prototype/temple-depth-v1.png'),
-      backdrop: assetUrl('/prototype/gray-blue-impasto-v1.png'),
-      dimensions: { width: 1080, height: 931 },
+    let cancelled = false;
+    let disposeDepth = () => {};
+    disposePage = () => { cancelled = true; disposeDepth(); };
+    import('./components/depthTransition.js').then(({ mountHomeDepthExperience }) => {
+      if (cancelled) return;
+      disposeDepth = mountHomeDepthExperience(homeDepthRoot, {
+        artwork: assetUrl('/artworks/chen-temple-home-1080.webp'),
+        depthMap: assetUrl('/prototype/temple-depth-1080.webp'),
+        backdrop: assetUrl('/prototype/gray-blue-impasto-1080.webp'),
+        guideAssets: [
+          assetUrl('/decor/guide-impasto-background-v1.webp'),
+          assetUrl(matchMedia('(max-width: 600px)').matches ? '/artworks/studio-thumb.webp' : '/artworks/studio-large.webp'),
+          ...chapters.map((chapter) => assetUrl(chapter.image)),
+        ],
+        dimensions: { width: 1080, height: 931 },
+      });
+    }).catch(() => {
+      const page = homeDepthRoot.closest('.page--home');
+      page?.classList.remove('is-home-loading');
+      page?.classList.add('is-home-ready');
     });
   }
   const detailCanvas = app.querySelector('[data-detail-paint]');
