@@ -1,0 +1,59 @@
+:root { --paper: #e2dcd2; --ink: #312f2d; --accent: #7c82bd; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; background: #d8d2c8; color: var(--ink); }
+body { font-family: STSong, "Songti SC", SimSun, serif; overflow-x: hidden; }
+.mvp-home { position: relative; width: min(100%, 944px); min-height: 100dvh; margin: 0 auto; display: grid; grid-template-rows: 55dvh 45dvh; overflow: hidden; background: #f2eee8; }
+.hero-art { position: relative; z-index: 2; overflow: hidden; background: #97abb3 url('/prototype/gray-blue-impasto-v1.png') center / cover no-repeat; -webkit-mask-image: radial-gradient(ellipse 98% 96% at center, #000 0 78%, rgba(0,0,0,.94) 84%, rgba(0,0,0,.48) 93%, transparent 100%); mask-image: radial-gradient(ellipse 98% 96% at center, #000 0 78%, rgba(0,0,0,.94) 84%, rgba(0,0,0,.48) 93%, transparent 100%); }
+.hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 50%; }
+.hero-depth-canvas { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .4s ease; }
+.hero-depth-canvas.is-ready { opacity: 1; }
+.hero-art > img { transition: opacity .24s ease; }
+.hero-art.is-depth-ready > img { opacity: 0; }
+.hero-copy { position: relative; z-index: 3; min-height: 0; padding: clamp(22px,3.5dvh,38px) clamp(25px,6vw,58px) 24px; color: #253b51; text-shadow: 0 1px 13px rgba(231,239,240,.25); }
+.hero-copy h1 { position: relative; width: min(100%,680px); min-height: clamp(118px,16dvh,168px); margin: 0; font-size: clamp(56px,10vw,91px); font-weight: 400; line-height: .86; letter-spacing: .08em; }
+.title-line { position: absolute; display: block; white-space: nowrap; }
+.title-line--first { top: 0; left: 0; }
+.title-line--second { top: .82em; left: clamp(42%,45vw,48%); }
+.hero-copy p { margin: clamp(5px,1.4dvh,15px) 0 0 clamp(3px,.8vw,8px); color: #7379b3; font-family: "Microsoft YaHei","PingFang SC",sans-serif; font-size: clamp(13px,2.3vw,17px); font-weight: 400; line-height: 1.65; letter-spacing: .09em; }
+.hero-copy button { position: absolute; right: clamp(24px,6vw,58px); bottom: clamp(22px,3.5dvh,38px); width: min(48vw,360px); min-width: 205px; height: clamp(72px,10dvh,94px); overflow: hidden; border: 1px solid rgba(70,78,137,.78); color: #fff; background: url('/decor/button-paint-texture.webp') center/cover,#7379b3; box-shadow: inset 0 0 0 5px rgba(255,255,255,.09),0 16px 34px rgba(47,59,86,.22); font: clamp(20px,3.5vw,28px)/1 STSong,"Songti SC",serif; letter-spacing: .16em; cursor: pointer; transition: transform .24s ease,filter .24s ease; }
+.hero-copy button span { display: inline-block; margin-left: .65em; font-family: Georgia,serif; font-size: .82em; letter-spacing: 0; transition: transform .24s ease; }
+.hero-copy button:hover { filter: brightness(1.05); }
+.hero-copy button:hover span { transform: translateX(4px); }
+.hero-copy button:active { transform: translateY(1px) scale(.985); }
+.home-flora { display: none; }
+.transition-layer { position: fixed; inset: 0; z-index: 30; visibility: hidden; overflow: hidden; background: #97abb3 url('/prototype/gray-blue-impasto-v1.png') center / cover no-repeat; pointer-events: none; }
+.transition-layer.is-active { visibility: visible; }
+.transition-layer.is-expanding { background-color: #97abb3; }
+.paint-wash { display: none; }
+.expanding-art { position: fixed; z-index: 2; display: block; object-fit: cover; transform-origin: 0 0; will-change: transform, opacity; -webkit-mask-image: radial-gradient(ellipse 98% 96% at center, #000 0 78%, rgba(0,0,0,.94) 84%, rgba(0,0,0,.48) 93%, transparent 100%); mask-image: radial-gradient(ellipse 98% 96% at center, #000 0 78%, rgba(0,0,0,.94) 84%, rgba(0,0,0,.48) 93%, transparent 100%); }
+#depthCanvas { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .24s ease; }
+.transition-layer.is-three #depthCanvas { opacity: 1; }
+.depth-vignette { position: absolute; inset: 0; z-index: 3; opacity: 0; background: radial-gradient(circle at 61% 48%, transparent 24%, rgba(52,70,78,.15) 100%); transition: opacity .7s ease; }
+.transition-layer.is-three .depth-vignette { opacity: 1; }
+.transition-status { position: absolute; z-index: 4; left: 50%; bottom: 25px; display: none; align-items: center; gap: 12px; color: rgba(255,255,255,.82); font: 11px/1 "Microsoft YaHei",sans-serif; letter-spacing: .16em; opacity: 0; transform: translateX(-50%); transition: opacity .45s ease .35s; }
+.transition-layer.is-expanding .transition-status { opacity: 1; }
+.transition-status i { width: 42px; height: 1px; overflow: hidden; background: rgba(255,255,255,.28); }
+.transition-status i::after { content: ""; display: block; width: 100%; height: 100%; background: #fff; animation: status-line 1.2s ease-in-out infinite; }
+.guide-arrival { position: fixed; inset: 0; z-index: 40; display: grid; place-content: center; justify-items: center; color: var(--ink); background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.82), transparent 43%), var(--paper); opacity: 0; visibility: hidden; transform: scale(1.018); transition: opacity 1.15s cubic-bezier(.32,0,.22,1), transform 1.35s cubic-bezier(.16,1,.3,1), visibility 1.15s; }
+.guide-arrival.is-visible { opacity: 1; visibility: visible; transform: scale(1); }
+.guide-arrival p { margin: 22px 0 30px; color: var(--accent); letter-spacing: .19em; }
+.guide-arrival h2 { margin: 0; font-size: clamp(52px,10vw,88px); font-weight: 400; letter-spacing: .12em; }
+.guide-arrival small { margin-top: 25px; color: #6c6863; font-size: 14px; letter-spacing: .16em; }
+.guide-rule { width: min(70vw,480px); display: flex; align-items: center; gap: 14px; color: var(--accent); }
+.guide-rule span { height: 1px; flex: 1; background: currentColor; }
+.guide-rule i { width: 9px; height: 9px; border: 1px solid currentColor; transform: rotate(45deg); }
+.replay { position: fixed; z-index: 50; right: 18px; top: 18px; display: none; padding: 10px 15px; color: var(--accent); border: 1px solid currentColor; background: rgba(235,231,223,.82); backdrop-filter: blur(8px); font: 12px/1 "Microsoft YaHei",sans-serif; letter-spacing: .12em; cursor: pointer; }
+.replay.is-visible { display: block; }
+@keyframes status-line { 0% { transform: translateX(-105%); } 60%,100% { transform: translateX(105%); } }
+@media (max-width: 600px) {
+  .hero-copy { padding-top: 22px; }
+  .hero-copy h1 { min-height: 116px; font-size: clamp(52px,15vw,68px); }
+  .title-line--second { left: 44%; }
+  .hero-copy p { margin-top: 4px; font-size: 13px; line-height: 1.65; letter-spacing: .07em; }
+  .hero-copy button { width: 48vw; min-width: 205px; height: 72px; font-size: 21px; }
+  .guide-arrival small { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .transition-status i::after { animation: none; }
+  .guide-arrival { transition-duration: .01ms; }
+}

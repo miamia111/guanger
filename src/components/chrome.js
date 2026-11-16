@@ -1,4 +1,4 @@
-import { chapters, copy } from '../data/exhibition.js';
+import { articles, chapters, copy } from '../data/exhibition.js';
 import { icons } from './icons.js';
 
 const chromeCopy = (key, fallback) => copy.chrome?.[key] ?? fallback;
@@ -28,6 +28,9 @@ export function guidePanel(current = '') {
       <a href="#/guide" class="guide-panel__row ${current === 'catalog' ? 'is-active' : ''}">
         <i aria-hidden="true"></i><strong>${chromeCopy('catalogTitle', '目录')}</strong><span>${chromeCopy('catalogDescription', '展览简介与作品目录')}</span>
       </a>
+      ${articles.map((article) => `<a href="#/article/${article.id}" class="guide-panel__row ${article.id === current ? 'is-active' : ''}">
+        <i aria-hidden="true"></i><strong>${article.title}</strong><span>${article.summary}</span>
+      </a>`).join('')}
       ${chapters.map((chapter) => `<a href="#/chapter/${chapter.id}" class="guide-panel__row ${chapter.id === current ? 'is-active' : ''}">
         <i aria-hidden="true"></i><strong>${chapter.title}</strong><span>${chapter.short}</span>
       </a>`).join('')}

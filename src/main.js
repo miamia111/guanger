@@ -1,6 +1,6 @@
 import './styles/tokens.css';
 import './styles/app.css';
-import { exhibition, chapters, works, copy } from './data/exhibition.js';
+import { exhibition, articles, students, chapters, works, copy } from './data/exhibition.js';
 import { header, guidePanel, bindChrome, rule } from './components/chrome.js';
 import { icons } from './components/icons.js';
 import { mountPaintReveal } from './components/paintReveal.js';
@@ -23,13 +23,20 @@ async function importWithRetry(loader, retries = 2) {
   throw lastError;
 }
 
-function chapterRows() {
-  return chapters.map((chapter) => `<a class="chapter-row" href="#/chapter/${chapter.id}">
+function catalogueRows() {
+  const articleRows = articles.map((article) => `<a class="chapter-row chapter-row--article" href="#/article/${article.id}">
+    <span class="chapter-row__number">${article.number}</span>
+    <span class="chapter-row__copy"><strong>${article.title}</strong><small class="chapter-row__artist">${article.label}</small><small class="chapter-row__description">${article.summary}</small></span>
+    <span class="chapter-row__article-mark"><small>ARTICLE</small><b>阅读文章</b></span>
+    <span class="round-arrow">${icons.arrow}</span>
+  </a>`).join('');
+  const workRows = chapters.map((chapter) => `<a class="chapter-row" href="#/chapter/${chapter.id}">
     <span class="chapter-row__number">${chapter.number}</span>
     <span class="chapter-row__copy"><strong>${chapter.title}</strong><small class="chapter-row__artist">${chapter.artistLabel}</small><small class="chapter-row__description">${chapter.description.replace('\n', '<br>')}</small></span>
     <span class="chapter-row__image" data-image-frame><img src="${assetUrl(chapter.image)}" alt="" loading="lazy" decoding="async" /><span class="image-loader" aria-hidden="true"><i></i><b>载入中</b></span></span>
     <span class="round-arrow">${icons.arrow}</span>
   </a>`).join('');
+  return articleRows + workRows;
 }
 
 function homeView() {
@@ -39,8 +46,8 @@ function homeView() {
       <p>正在进入展览</p>
     </div>
     <section class="home-art" aria-label="${pageCopy('home', 'heroAria', '展览主视觉')}"><div class="cropped-temple" data-image-frame data-home-depth-root><picture>
-      <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/chen-temple-home-720.webp')}" />
-      <img src="${assetUrl('/artworks/chen-temple-home-1080.webp')}" width="1080" height="931" alt="${pageCopy('home', 'heroAlt', '陈致远庙埕街景油画')}" loading="eager" fetchpriority="high" decoding="async" />
+      <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/home-swans-720.webp')}" />
+      <img src="${assetUrl('/artworks/home-swans-1080.webp')}" width="1080" height="867" alt="${pageCopy('home', 'heroAlt', '湖畔天鹅与桥梁油画')}" loading="eager" fetchpriority="high" decoding="async" />
     </picture><span class="image-loader image-loader--hero" aria-hidden="true"><i></i><b>作品载入中</b></span><canvas class="home-depth-canvas" data-home-depth aria-hidden="true"></canvas></div></section>
     <section class="home-copy">
       <h1 aria-label="${exhibition.title}"><span class="home-title-line home-title-line--first">${exhibition.title.slice(0, 2)}</span><span class="home-title-line home-title-line--second">${exhibition.title.slice(2)}</span></h1>
@@ -65,20 +72,69 @@ function guideView() {
     </section>
     <section class="guide-catalogue">
       <h2 class="section-title">${icons.diamond} ${pageCopy('guide', 'catalogHeading', '作品目录')}</h2>
-      <div class="chapter-list">${chapterRows()}</div>
+      <div class="chapter-list">${catalogueRows()}</div>
       ${rule()}
     </section>
   </main>`;
 }
 
+function workCard(work) {
+  return `<a href="#/work/${work.id}" class="work-card"><div class="work-card__image" data-image-frame><img src="${assetUrl(work.thumbnail || work.image)}" alt="${work.title}" loading="lazy" decoding="async" /><span class="image-loader" aria-hidden="true"><i></i><b>作品载入中</b></span><span class="work-card__action">${pageCopy('chapter', 'workCardAction', '点击观看作品')} ${icons.arrow}</span></div><div><h2>${work.title}</h2><p>${work.artist}</p></div></a>`;
+}
+
+function studentGroups(chapterWorks) {
+  const names = [...new Set([...students.map((student) => student.name), ...chapterWorks.map((work) => work.artist)])];
+  return `<div class="student-groups">${names.map((name) => {
+    const student = students.find((item) => item.name === name) || { name, role: '参展学生', intro: '学生简介待补充。' };
+    const studentWorks = chapterWorks.filter((work) => work.artist === name);
+    const cover = studentWorks.length ? studentWorks[0].thumbnail || studentWorks[0].image : '';
+    return `<details class="student-group">
+      <summary class="student-group__banner">
+        ${cover ? `<span class="student-group__cover" data-image-frame><img src="${assetUrl(cover)}" alt="" loading="lazy" decoding="async" /><span class="image-loader" aria-hidden="true"><i></i><b>载入中</b></span></span>` : `<span class="student-group__cover student-group__cover--empty" aria-hidden="true"><b>${name.slice(0, 1)}</b></span>`}
+        <span class="student-group__identity"><small>${student.role}</small><strong>${student.name}</strong><em>${studentWorks.length} 件作品</em></span>
+        <span class="student-group__action"><b>展开简介与作品</b>${icons.chevron}</span>
+      </summary>
+      <div class="student-group__panel">
+        <section class="student-profile"><small>学生简介</small><h2>${student.name}</h2><p>${student.intro}</p></section>
+        ${studentWorks.length ? `<div class="work-grid">${studentWorks.map(workCard).join('')}</div>` : `<p class="student-group__empty">作品资料整理中</p>`}
+      </div>
+    </details>`;
+  }).join('')}</div>`;
+}
+
 function chapterView(chapter) {
   const chapterWorks = works.filter((work) => work.chapter === chapter.id);
+  const chapterContent = chapter.id === 'voices'
+    ? studentGroups(chapterWorks)
+    : `<div class="work-grid">${chapterWorks.map(workCard).join('') || `<p class="empty">${pageCopy('chapter', 'emptyText', '作品资料整理中')}</p>`}</div>`;
   return `<main class="page page--chapter">
     ${header({ title: chapter.title, back: '#/guide', detail: true })}
     ${guidePanel(chapter.id)}
     <section class="chapter-heading"><span>${chapter.number} / ${pageCopy('chapter', 'chapterLabel', 'CHAPTER')}</span><h1>${chapter.title}</h1><p>${chapter.short}</p><div class="chapter-intro">${chapter.intro}</div></section>
     <section class="work-section"><div class="work-section__label"><span>${pageCopy('chapter', 'worksHeading', '本章作品')}</span></div>
-    <div class="work-grid">${chapterWorks.map((work) => `<a href="#/work/${work.id}" class="work-card"><div class="work-card__image" data-image-frame><img src="${assetUrl(work.thumbnail || work.image)}" alt="${work.title}" loading="lazy" decoding="async" /><span class="image-loader" aria-hidden="true"><i></i><b>作品载入中</b></span><span class="work-card__action">${pageCopy('chapter', 'workCardAction', '点击观看作品')} ${icons.arrow}</span></div><div><h2>${work.title}</h2><p>${work.artist}</p></div></a>`).join('') || `<p class="empty">${pageCopy('chapter', 'emptyText', '作品资料整理中')}</p>`}</div></section>
+    ${chapterContent}</section>
+  </main>`;
+}
+
+function articleView(article) {
+  const renderParagraph = (paragraph) => {
+    if (/^[一二三四五六七八九十]+、/.test(paragraph)) return `<h2>${paragraph}</h2>`;
+    if (/^（[一二三四五六七八九十]+）/.test(paragraph)) return `<h3>${paragraph}</h3>`;
+    if (paragraph.startsWith('• ')) return `<p class="article-list-item">${paragraph.slice(2)}</p>`;
+    if (paragraph.startsWith('“') && paragraph.endsWith('”')) return `<blockquote>${paragraph}</blockquote>`;
+    return `<p>${paragraph}</p>`;
+  };
+  return `<main class="page page--article">
+    ${header({ title: article.title, back: '#/guide', detail: true })}
+    ${guidePanel(article.id)}
+    <article class="article-page">
+      <header><span>${article.number} / ARTICLE</span><h1>${article.title}</h1><p class="article-label">${article.label}</p><p>${article.summary}</p><div class="article-byline">${article.byline || ''}${article.date ? `<time>${article.date}</time>` : ''}</div></header>
+      <div class="article-paper">
+        ${article.content.map(renderParagraph).join('')}
+        ${article.signatureImage ? `<figure class="article-signature"><img src="${assetUrl(article.signatureImage)}" alt="${article.signatureAlt || ''}" loading="lazy" decoding="async" /></figure>` : ''}
+      </div>
+      ${rule()}
+    </article>
   </main>`;
 }
 
@@ -109,10 +165,16 @@ function render() {
   disposePage = () => {};
   const route = location.hash.slice(2).split('/').filter(Boolean);
   if (route[0] === 'guide') app.innerHTML = guideView();
+  else if (route[0] === 'article') app.innerHTML = articleView(articles.find((item) => item.id === route[1]) || articles[0]);
   else if (route[0] === 'chapter') app.innerHTML = chapterView(chapters.find((item) => item.id === route[1]) || chapters[0]);
   else if (route[0] === 'work') app.innerHTML = detailView(works.find((item) => item.id === route[1]) || works[0]);
   else app.innerHTML = homeView();
   bindChrome(app);
+  const studentGroups = [...app.querySelectorAll('.student-group')];
+  studentGroups.forEach((group) => group.addEventListener('toggle', () => {
+    if (!group.open) return;
+    studentGroups.forEach((other) => { if (other !== group) other.open = false; });
+  }));
   app.querySelectorAll('[data-image-frame]').forEach((frame) => {
     const image = frame.querySelector('img');
     if (!image) return;
@@ -136,15 +198,15 @@ function render() {
     importWithRetry(() => import('./components/depthTransition.js')).then(({ mountHomeDepthExperience }) => {
       if (cancelled) return;
       disposeDepth = mountHomeDepthExperience(homeDepthRoot, {
-        artwork: assetUrl('/artworks/chen-temple-home-1080.webp'),
-        depthMap: assetUrl('/prototype/temple-depth-1080.webp'),
+        artwork: assetUrl('/artworks/home-swans-1080.webp'),
+        depthMap: assetUrl('/prototype/swans-depth-1080.webp'),
         backdrop: assetUrl('/prototype/gray-blue-impasto-1080.webp'),
         guideAssets: [
           assetUrl('/decor/guide-impasto-background-v1.webp'),
           assetUrl(matchMedia('(max-width: 600px)').matches ? '/artworks/studio-thumb.webp' : '/artworks/studio-large.webp'),
           ...chapters.map((chapter) => assetUrl(chapter.image)),
         ],
-        dimensions: { width: 1080, height: 931 },
+        dimensions: { width: 1080, height: 867 },
       });
     }).catch(() => {
       const page = homeDepthRoot.closest('.page--home');
