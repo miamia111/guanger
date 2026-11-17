@@ -121,7 +121,7 @@
 .student-profile { margin-bottom: 30px; padding: 25px 28px 28px; border: 1px solid rgba(64,91,157,.18); background: rgba(255,255,255,.68); }
 .student-profile small { color: #536fae; font: 12px/1 var(--sans); letter-spacing: .14em; }
 .student-profile h2 { margin: 10px 0 13px; color: #1d3049; font-size: 32px; font-weight: 500; letter-spacing: .1em; }
-.student-profile p { margin: 0; color: #344457; font-size: 17px; line-height: 1.95; letter-spacing: .06em; }
+.student-profile p { margin: 0; color: #344457; font-size: 17px; line-height: 1.95; letter-spacing: .06em; white-space: pre-line; }
 .student-group__empty { margin: 0; padding: 28px 20px; color: #667180; border-top: 1px solid rgba(64,91,157,.16); text-align: center; letter-spacing: .1em; }
 
 .detail-header { position: relative; z-index: 30; min-height: 92px; display: grid; grid-template-columns: 80px 1fr 100px; align-items: center; background: rgba(245,242,236,.95); backdrop-filter: blur(12px); }
