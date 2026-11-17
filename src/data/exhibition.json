@@ -135,7 +135,7 @@
       "id": "student-5085742c8335",
       "name": "傅琬茵",
       "role": "参展学生",
-      "intro": "傅琬茵，22岁，从小喜欢绘画，高中时期跟随陈致远老师进行专业化、系统化的绘画学习，现就读于加拿大艾米丽卡尔艺术与设计大学（Emily Carr University of Art + Design）视觉艺术专业，主要学习绘画方向。"
+      "intro": "傅琬茵，22岁，从小喜欢绘画，高中时期跟随陈致远老师进行专业化、系统化的绘画学习，现就读于加拿大艺术与设计第一的 Emily Carr 艺术与设计大学 Visual Art 专业，主要学习 Drawing & Painting 方向。"
     },
     {
       "id": "wu-si",
@@ -147,7 +147,7 @@
       "id": "student-80968c1a",
       "name": "肖谚",
       "role": "参展学生",
-      "intro": "学生简介待补充。"
+      "intro": "肖谚，毕业于福州师范大学，《福建青年》主持人、严羽茶文化品牌创始人。"
     },
     {
       "id": "student-5f2071d571d5",
@@ -595,9 +595,21 @@
       "description": "作品资料将在后续补充。"
     },
     {
+      "id": "zhang-shuyan-floral-01",
+      "chapter": "voices",
+      "title": "未题名",
+      "artist": "张舒妍",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/zhang-shuyan-floral-01-thumb.webp",
+      "image": "/artworks/zhang-shuyan-floral-01-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
       "id": "zhang-nujiang",
       "chapter": "voices",
-      "title": "怒江州",
+      "title": "怒江川",
       "artist": "张舒妍",
       "year": "资料待补",
       "size": "80 × 60 cm",
