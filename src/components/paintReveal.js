@@ -316,11 +316,12 @@ export function mountPaintReveal(canvas, urls, options = {}) {
   function play() {
     cancelAnimationFrame(frameId);
     const currentRun = ++runId;
+    canvas.classList.remove('is-complete');
     maskCtx.clearRect(0, 0, mask.width, mask.height);
     reliefCtx.clearRect(0, 0, relief.width, relief.height);
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      composite(1);
       canvas.classList.add('is-ready');
+      canvas.classList.add('is-complete');
       return;
     }
     const useLandscapeMarks = options.mode === 'landscape'
@@ -339,6 +340,7 @@ export function mountPaintReveal(canvas, urls, options = {}) {
       composite(easePaint(clamp((progress - .90) / .10)));
       canvas.classList.add('is-ready');
       if (progress < 1) frameId = requestAnimationFrame(frame);
+      else canvas.classList.add('is-complete');
     }
     frameId = requestAnimationFrame(frame);
   }

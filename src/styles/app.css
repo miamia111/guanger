@@ -141,6 +141,7 @@
 .detail-art img { width: 100%; max-height: 760px; display: block; object-fit: contain; }
 .detail-paint-reveal { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .18s ease; }
 .detail-paint-reveal.is-ready { opacity: 1; }
+.detail-paint-reveal.is-ready.is-complete { opacity: 0; transition-duration: .42s; pointer-events: none; }
 .detail-paint-reveal.is-unavailable { display: none; }
 .detail-copy { padding: 24px var(--gutter) 20px; }
 .detail-info-card { position: relative; margin: 28px 0 2px; padding: 18px 24px 2px; overflow: hidden; border: 1px solid rgba(74, 87, 112, .2); border-radius: 2px; background: rgba(250, 249, 245, .94); box-shadow: 0 12px 28px rgba(55, 70, 86, .16), 0 2px 7px rgba(55, 70, 86, .1); }
