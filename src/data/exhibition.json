@@ -117,7 +117,7 @@
       "id": "student-6b2796337acb7ea2",
       "name": "欧阳立红",
       "role": "参展学生",
-      "intro": "学生简介待补充。"
+      "intro": "欧阳立红，2012年结缘陈致远老师，成为其大陆首位学生。得益于陈老师在艺术上的引领，她融合多领域认知，打破学科边界，擅长以绘画艺术为载体，引导大家透过创作读懂内在，探索艺术与生命的深层关联。"
     },
     {
       "id": "student-9648535790bb",
@@ -194,6 +194,12 @@
     {
       "id": "student-9ec4777f6862",
       "name": "黄睿桢",
+      "role": "参展学生",
+      "intro": "学生简介待补充。"
+    },
+    {
+      "id": "student-chen-huan",
+      "name": "陈欢",
       "role": "参展学生",
       "intro": "学生简介待补充。"
     }
@@ -619,12 +625,24 @@
       "description": "作品资料将在后续补充。"
     },
     {
+      "id": "ouyang-guian",
+      "chapter": "voices",
+      "title": "归安",
+      "artist": "欧阳立红",
+      "year": "2013",
+      "size": "50 × 60 cm",
+      "medium": "油画",
+      "thumbnail": "/artworks/ouyang-guian-thumb.webp",
+      "image": "/artworks/ouyang-guian-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
       "id": "ouyang-color",
       "chapter": "voices",
       "title": "彩",
       "artist": "欧阳立红",
       "year": "2013",
-      "size": "30 × 40 cm",
+      "size": "40 × 50 cm",
       "medium": "油画",
       "thumbnail": "/artworks/ouyang-color-thumb.webp",
       "image": "/artworks/ouyang-color-large.webp",
@@ -772,6 +790,30 @@
       "medium": "资料待补",
       "thumbnail": "/artworks/fuyun-youzi-new-02-thumb.webp",
       "image": "/artworks/fuyun-youzi-new-02-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "chen-huan-shenyang-palace",
+      "chapter": "voices",
+      "title": "沈阳故宫",
+      "artist": "陈欢",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "油画",
+      "thumbnail": "/artworks/chen-huan-shenyang-palace-thumb.webp",
+      "image": "/artworks/chen-huan-shenyang-palace-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "chen-huan-ha-long-bay",
+      "chapter": "voices",
+      "title": "下龙湾",
+      "artist": "陈欢",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "油画",
+      "thumbnail": "/artworks/chen-huan-ha-long-bay-thumb.webp",
+      "image": "/artworks/chen-huan-ha-long-bay-large.webp",
       "description": "作品资料将在后续补充。"
     }
   ],
