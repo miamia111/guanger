@@ -553,6 +553,30 @@
       "description": "吴偲于2024年创作的综合材料作品。"
     },
     {
+      "id": "wu-rabbit",
+      "chapter": "voices",
+      "title": "白兔",
+      "artist": "吴偲",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "布面油画",
+      "thumbnail": "/artworks/wu-rabbit-thumb.webp",
+      "image": "/artworks/wu-rabbit-large.webp",
+      "description": "白兔安静地停驻在草丛之中，柔和的粉白色与深沉的植物色调形成对照。作品资料将在后续补充。"
+    },
+    {
+      "id": "wu-summer-amoy",
+      "chapter": "voices",
+      "title": "Summer in Amoy",
+      "artist": "吴偲",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "布面油画",
+      "thumbnail": "/artworks/wu-summer-amoy-thumb.webp",
+      "image": "/artworks/wu-summer-amoy-large.webp",
+      "description": "雕塑、建筑与繁茂植物被组织进鲜明的冷暖色彩之中，呈现厦门夏日充沛而明亮的气息。作品资料将在后续补充。"
+    },
+    {
       "id": "fu-gulangyu-corner",
       "chapter": "voices",
       "title": "鼓浪屿一角",
