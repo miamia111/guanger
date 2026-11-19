@@ -138,11 +138,27 @@ function articleView(article) {
   </main>`;
 }
 
+function hasArtworkDetail(value) {
+  const text = String(value ?? '').trim();
+  return Boolean(text) && !text.includes('待补') && text !== '作品资料将在后续补充。';
+}
+
 function detailView(work) {
   const chapter = chapters.find((item) => item.id === work.chapter);
   const index = works.indexOf(work);
   const previous = works[(index - 1 + works.length) % works.length];
   const next = works[(index + 1) % works.length];
+  const metadata = [
+    [pageCopy('detail', 'yearLabel', '创作年份'), work.year],
+    [pageCopy('detail', 'sizeLabel', '尺寸'), work.size],
+    [pageCopy('detail', 'mediumLabel', '材料'), work.medium],
+  ].filter(([, value]) => hasArtworkDetail(value));
+  const metadataHtml = metadata.length
+    ? `<dl class="metadata">${metadata.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>`
+    : '';
+  const descriptionHtml = hasArtworkDetail(work.description)
+    ? `<section class="work-description"><h3>${pageCopy('detail', 'descriptionHeading', '作品简介')}</h3><p>${work.description}</p></section>`
+    : '';
   return `<main class="page page--detail">
     ${header({ title: pageCopy('detail', 'headerTitle', '作品详情'), detail: true, back: `#/chapter/${work.chapter}` })}
     ${guidePanel(work.chapter)}
@@ -152,8 +168,8 @@ function detailView(work) {
       <h1>${work.title}</h1>
       <h2>${work.artist}</h2>
       <div class="detail-info-card">
-        <dl class="metadata"><div><dt>${pageCopy('detail', 'yearLabel', '创作年份')}</dt><dd>${work.year}</dd></div><div><dt>${pageCopy('detail', 'sizeLabel', '尺寸')}</dt><dd>${work.size}</dd></div><div><dt>${pageCopy('detail', 'mediumLabel', '材料')}</dt><dd>${work.medium}</dd></div></dl>
-        <section class="work-description"><h3>${pageCopy('detail', 'descriptionHeading', '作品简介')}</h3><p>${work.description}</p></section>
+        ${metadataHtml}
+        ${descriptionHtml}
       </div>
       <nav class="work-pagination"><a href="#/work/${previous.id}">‹　${pageCopy('detail', 'previousLabel', '上一件')}</a><i></i><a href="#/work/${next.id}">${pageCopy('detail', 'nextLabel', '下一件')}　›</a></nav>
     </article>
