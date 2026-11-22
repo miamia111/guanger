@@ -1069,6 +1069,54 @@
       "description": "作品资料将在后续补充。"
     },
     {
+      "id": "fu-wanyin-pending-01",
+      "chapter": "voices",
+      "title": "作品名待补（01）",
+      "artist": "傅琬茵",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/fu-wanyin-pending-01-thumb.webp",
+      "image": "/artworks/fu-wanyin-pending-01-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "fu-wanyin-pending-02",
+      "chapter": "voices",
+      "title": "作品名待补（02）",
+      "artist": "傅琬茵",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/fu-wanyin-pending-02-thumb.webp",
+      "image": "/artworks/fu-wanyin-pending-02-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "fu-wanyin-pending-03",
+      "chapter": "voices",
+      "title": "作品名待补（03）",
+      "artist": "傅琬茵",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/fu-wanyin-pending-03-thumb.webp",
+      "image": "/artworks/fu-wanyin-pending-03-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "fu-wanyin-pending-04",
+      "chapter": "voices",
+      "title": "作品名待补（04）",
+      "artist": "傅琬茵",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/fu-wanyin-pending-04-thumb.webp",
+      "image": "/artworks/fu-wanyin-pending-04-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
       "id": "you-ancient-banyan",
       "chapter": "voices",
       "title": "南海古柯",
@@ -1129,6 +1177,30 @@
       "description": "作品资料将在后续补充。"
     },
     {
+      "id": "zhang-shuyan-pending-01",
+      "chapter": "voices",
+      "title": "作品名待补（01）",
+      "artist": "张舒妍",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/zhang-shuyan-pending-01-thumb.webp",
+      "image": "/artworks/zhang-shuyan-pending-01-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "zhang-shuyan-pending-02",
+      "chapter": "voices",
+      "title": "作品名待补（02）",
+      "artist": "张舒妍",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/zhang-shuyan-pending-02-thumb.webp",
+      "image": "/artworks/zhang-shuyan-pending-02-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
       "id": "ouyang-guian",
       "chapter": "voices",
       "title": "归安",
@@ -1186,6 +1258,18 @@
       "medium": "油彩",
       "thumbnail": "/artworks/chen-sijia-gulangyu-study-thumb.webp",
       "image": "/artworks/chen-sijia-gulangyu-study-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "chen-sijia-pending-01",
+      "chapter": "voices",
+      "title": "作品名待补（01）",
+      "artist": "陈思嘉",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/chen-sijia-pending-01-thumb.webp",
+      "image": "/artworks/chen-sijia-pending-01-large.webp",
       "description": "作品资料将在后续补充。"
     },
     {
@@ -1318,6 +1402,18 @@
       "medium": "油画",
       "thumbnail": "/artworks/chen-huan-ha-long-bay-thumb.webp",
       "image": "/artworks/chen-huan-ha-long-bay-large.webp",
+      "description": "作品资料将在后续补充。"
+    },
+    {
+      "id": "xiang-yiqi-pending-01",
+      "chapter": "voices",
+      "title": "作品名待补（01）",
+      "artist": "项翊绮",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/xiang-yiqi-pending-01-thumb.webp",
+      "image": "/artworks/xiang-yiqi-pending-01-large.webp",
       "description": "作品资料将在后续补充。"
     }
   ],
