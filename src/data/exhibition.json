@@ -758,7 +758,7 @@
     },
     {
       "id": "chen-zhiyuan-added-01",
-      "title": "静物——猪脚",
+      "title": "巴伐利亚风味",
       "artist": "陈致远",
       "year": "资料待补",
       "size": "80 × 60 cm",
@@ -770,7 +770,7 @@
     },
     {
       "id": "chen-zhiyuan-added-02",
-      "title": "金门牛",
+      "title": "闲牧",
       "artist": "陈致远",
       "year": "资料待补",
       "size": "73 × 60.5 cm",
@@ -1155,7 +1155,7 @@
     {
       "id": "zhang-shuyan-floral-01",
       "chapter": "voices",
-      "title": "未题名",
+      "title": "花间",
       "artist": "张舒妍",
       "year": "资料待补",
       "size": "尺寸待补",
@@ -1179,7 +1179,7 @@
     {
       "id": "zhang-shuyan-pending-01",
       "chapter": "voices",
-      "title": "作品名待补（01）",
+      "title": "青野",
       "artist": "张舒妍",
       "year": "资料待补",
       "size": "尺寸待补",
@@ -1191,7 +1191,7 @@
     {
       "id": "zhang-shuyan-pending-02",
       "chapter": "voices",
-      "title": "作品名待补（02）",
+      "title": "蓝岸",
       "artist": "张舒妍",
       "year": "资料待补",
       "size": "尺寸待补",
@@ -1231,7 +1231,7 @@
       "artist": "王辰如",
       "year": "资料待补",
       "size": "资料待补",
-      "medium": "资料待补",
+      "medium": "布面油画",
       "thumbnail": "/artworks/wangchen-fish-clam-thumb.webp",
       "image": "/artworks/wangchen-fish-clam-large.webp",
       "description": "作品资料将在后续补充。"
@@ -1251,23 +1251,23 @@
     {
       "id": "chen-sijia-gulangyu-study",
       "chapter": "voices",
-      "title": "鼓浪屿习作",
+      "title": "鼓浪屿",
       "artist": "陈思嘉",
       "year": "资料待补",
       "size": "54 × 39 cm",
-      "medium": "油彩",
+      "medium": "纸本油彩",
       "thumbnail": "/artworks/chen-sijia-gulangyu-study-thumb.webp",
       "image": "/artworks/chen-sijia-gulangyu-study-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "chen-sijia-pending-01",
       "chapter": "voices",
-      "title": "作品名待补（01）",
+      "title": "兔",
       "artist": "陈思嘉",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "油画",
       "thumbnail": "/artworks/chen-sijia-pending-01-thumb.webp",
       "image": "/artworks/chen-sijia-pending-01-large.webp",
       "description": "作品资料将在后续补充。"
@@ -1275,14 +1275,14 @@
     {
       "id": "xiang-untitled-01",
       "chapter": "voices",
-      "title": "作品名待补",
+      "title": "蔚蓝奇境・海底派对",
       "artist": "项翊绮",
       "year": "资料待补",
       "size": "资料待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiang-untitled-01-thumb.webp",
       "image": "/artworks/xiang-untitled-01-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "在深邃蔚蓝的海洋里，每一种生物都是奇妙的朋友，每一次探索都是惊喜的相遇。孩子用纯真的眼光，描绘出一场充满欢笑、想象与生命力的海底奇幻旅程。"
     },
     {
       "id": "huang-minhai-sails",
@@ -1291,63 +1291,63 @@
       "artist": "黄珞琪",
       "year": "资料待补",
       "size": "资料待补",
-      "medium": "资料待补",
+      "medium": "纸本油彩",
       "thumbnail": "/artworks/huang-minhai-sails-thumb.webp",
       "image": "/artworks/huang-minhai-sails-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "xiao-yan-new-01",
       "chapter": "voices",
-      "title": "未题名（01）",
+      "title": "山中来信·其一：风起",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiao-yan-new-01-thumb.webp",
       "image": "/artworks/xiao-yan-new-01-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "满幅斜向飞白，如风过林梢"
     },
     {
       "id": "xiao-yan-new-02",
       "chapter": "voices",
-      "title": "未题名（02）",
+      "title": "山中来信·其二：苔深",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiao-yan-new-02-thumb.webp",
       "image": "/artworks/xiao-yan-new-02-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "黑团层叠湿润，如雨后湿苔"
     },
     {
       "id": "xiao-yan-new-03",
       "chapter": "voices",
-      "title": "未题名（03）",
+      "title": "山中来信·其三：星陨",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiao-yan-new-03-thumb.webp",
       "image": "/artworks/xiao-yan-new-03-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "中央放射状墨花，如星落草木"
     },
     {
       "id": "xiao-yan-new-04",
       "chapter": "voices",
-      "title": "未题名（04）",
+      "title": "山中来信·其四：归雾",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiao-yan-new-04-thumb.webp",
       "image": "/artworks/xiao-yan-new-04-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "墨气弥散收束，如雾合山谷"
     },
     {
       "id": "zhang-yanyan-new-01",
       "chapter": "voices",
-      "title": "未题名",
+      "title": "海岸风光",
       "artist": "张燕燕",
       "year": "资料待补",
       "size": "尺寸待补",
@@ -1359,11 +1359,11 @@
     {
       "id": "fuyun-youzi-new-01",
       "chapter": "voices",
-      "title": "未题名（01）",
+      "title": "老街",
       "artist": "浮云游子",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "布面油画",
       "thumbnail": "/artworks/fuyun-youzi-new-01-thumb.webp",
       "image": "/artworks/fuyun-youzi-new-01-large.webp",
       "description": "作品资料将在后续补充。"
@@ -1371,11 +1371,11 @@
     {
       "id": "fuyun-youzi-new-02",
       "chapter": "voices",
-      "title": "未题名（02）",
+      "title": "垦丁海岸",
       "artist": "浮云游子",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "布面油画",
       "thumbnail": "/artworks/fuyun-youzi-new-02-thumb.webp",
       "image": "/artworks/fuyun-youzi-new-02-large.webp",
       "description": "作品资料将在后续补充。"
@@ -1387,34 +1387,34 @@
       "artist": "陈欢",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "油画",
+      "medium": "纸本油彩",
       "thumbnail": "/artworks/chen-huan-shenyang-palace-thumb.webp",
       "image": "/artworks/chen-huan-shenyang-palace-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "chen-huan-ha-long-bay",
       "chapter": "voices",
-      "title": "下龙湾",
+      "title": "桂林山水",
       "artist": "陈欢",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "油画",
+      "medium": "纸本油彩",
       "thumbnail": "/artworks/chen-huan-ha-long-bay-thumb.webp",
       "image": "/artworks/chen-huan-ha-long-bay-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "xiang-yiqi-pending-01",
       "chapter": "voices",
-      "title": "作品名待补（01）",
+      "title": "花漾时光・幸福绽放",
       "artist": "项翊绮",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiang-yiqi-pending-01-thumb.webp",
       "image": "/artworks/xiang-yiqi-pending-01-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "一朵朵盛开的花，承载着孩子对美好世界的想象。透过缤纷的色彩与自由的笔触，将生活中的美丽与幸福收藏在花瓶里，让每一朵花都绽放出独一无二的生命力。"
     }
   ],
   "settings": {
