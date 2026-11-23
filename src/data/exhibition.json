@@ -975,7 +975,7 @@
     {
       "id": "wu-summer-amoy",
       "chapter": "voices",
-      "title": "Summer in Amoy",
+      "title": "盛·夏",
       "artist": "吴偲",
       "year": "资料待补",
       "size": "尺寸待补",
@@ -987,7 +987,7 @@
     {
       "id": "wu-breakfast",
       "chapter": "voices",
-      "title": "Breakfast",
+      "title": "早餐",
       "artist": "吴偲",
       "year": "2024",
       "size": "40 × 60 cm",
@@ -999,11 +999,11 @@
     {
       "id": "wu-cosmic",
       "chapter": "voices",
-      "title": "Cosmic",
+      "title": "混沌",
       "artist": "吴偲",
       "year": "2025",
       "size": "100 × 80 cm",
-      "medium": "布面丙烯、喷漆、沙、闪粉、树脂晶体、塑形膏",
+      "medium": "综合媒介",
       "thumbnail": "/artworks/wu-cosmic-thumb.webp",
       "image": "/artworks/wu-cosmic-large.webp",
       "description": "巨大的蓝色生物悬浮于宇宙空间，明亮触手与深色星云形成尺度和色彩上的张力。"
@@ -1011,11 +1011,11 @@
     {
       "id": "wu-study-of-matter-ii",
       "chapter": "voices",
-      "title": "Study Of Matter II",
+      "title": "物质研究 II",
       "artist": "吴偲",
       "year": "2024",
       "size": "60 × 40 cm",
-      "medium": "布面丙烯、金属、炭笔、塑形膏",
+      "medium": "综合媒介",
       "thumbnail": "/artworks/wu-study-of-matter-ii-thumb.webp",
       "image": "/artworks/wu-study-of-matter-ii-large.webp",
       "description": "金属构件与金色枝状线条嵌入粉蓝色肌理，画面在人工结构与有机形态之间展开。"
@@ -1023,11 +1023,11 @@
     {
       "id": "wu-woods-whispered",
       "chapter": "voices",
-      "title": "What the Woods Whispered",
+      "title": "林中低语",
       "artist": "吴偲",
       "year": "2026",
       "size": "",
-      "medium": "",
+      "medium": "红陶雕塑",
       "thumbnail": "/artworks/wu-woods-whispered-thumb.webp",
       "image": "/artworks/wu-woods-whispered-large.webp",
       "description": "红色雕塑从植物之间探出，粗粝表面与周围繁密的绿色景观形成鲜明对照。"
@@ -1035,14 +1035,14 @@
     {
       "id": "wu-inorganic-pulses",
       "chapter": "voices",
-      "title": "Inorganic Pulses",
+      "title": "无机脉搏",
       "artist": "吴偲",
       "year": "2023",
-      "size": "46 × 126 cm × 3件",
+      "size": "46 × 126 cm",
       "medium": "布面油画",
       "thumbnail": "/artworks/wu-inorganic-pulses-thumb.webp",
       "image": "/artworks/wu-inorganic-pulses-large.webp",
-      "description": "粉紫色脉冲般的形态在暗色背景中舒展，微小光点散布其间。作品由三件画面组成。"
+      "description": "粉紫色脉冲般的形态在暗色背景中舒展，微小光点散布其间。"
     },
     {
       "id": "wu-scylla",
@@ -1051,10 +1051,10 @@
       "artist": "吴偲",
       "year": "2026",
       "size": "",
-      "medium": "",
+      "medium": "红陶雕塑",
       "thumbnail": "/artworks/wu-scylla-thumb.webp",
       "image": "/artworks/wu-scylla-large.webp",
-      "description": "雕塑以破碎的人形与环绕的生物形态构成，红色灯光强化了表面的起伏与阴影。"
+      "description": ""
     },
     {
       "id": "fu-gulangyu-corner",
@@ -1297,51 +1297,51 @@
       "description": "临摹习作"
     },
     {
-      "id": "xiao-yan-new-01",
+      "id": "xiao-yan-new-04",
       "chapter": "voices",
       "title": "山中来信·其一：风起",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
-      "thumbnail": "/artworks/xiao-yan-new-01-thumb.webp",
-      "image": "/artworks/xiao-yan-new-01-large.webp",
+      "thumbnail": "/artworks/xiao-yan-new-04-thumb.webp",
+      "image": "/artworks/xiao-yan-new-04-large.webp",
       "description": "满幅斜向飞白，如风过林梢"
-    },
-    {
-      "id": "xiao-yan-new-02",
-      "chapter": "voices",
-      "title": "山中来信·其二：苔深",
-      "artist": "肖谚",
-      "year": "资料待补",
-      "size": "尺寸待补",
-      "medium": "资料待补",
-      "thumbnail": "/artworks/xiao-yan-new-02-thumb.webp",
-      "image": "/artworks/xiao-yan-new-02-large.webp",
-      "description": "黑团层叠湿润，如雨后湿苔"
     },
     {
       "id": "xiao-yan-new-03",
       "chapter": "voices",
-      "title": "山中来信·其三：星陨",
+      "title": "山中来信·其二：苔",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
       "thumbnail": "/artworks/xiao-yan-new-03-thumb.webp",
       "image": "/artworks/xiao-yan-new-03-large.webp",
+      "description": "黑团层叠湿润，如雨后湿苔"
+    },
+    {
+      "id": "xiao-yan-new-02",
+      "chapter": "voices",
+      "title": "深山中来信·其三：星陨",
+      "artist": "肖谚",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "资料待补",
+      "thumbnail": "/artworks/xiao-yan-new-02-thumb.webp",
+      "image": "/artworks/xiao-yan-new-02-large.webp",
       "description": "中央放射状墨花，如星落草木"
     },
     {
-      "id": "xiao-yan-new-04",
+      "id": "xiao-yan-new-01",
       "chapter": "voices",
       "title": "山中来信·其四：归雾",
       "artist": "肖谚",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "资料待补",
-      "thumbnail": "/artworks/xiao-yan-new-04-thumb.webp",
-      "image": "/artworks/xiao-yan-new-04-large.webp",
+      "thumbnail": "/artworks/xiao-yan-new-01-thumb.webp",
+      "image": "/artworks/xiao-yan-new-01-large.webp",
       "description": "墨气弥散收束，如雾合山谷"
     },
     {
