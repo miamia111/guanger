@@ -10,19 +10,6 @@ const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, ''
 const pageCopy = (section, key, fallback) => copy[section]?.[key] ?? fallback;
 let disposePage = () => {};
 
-async function importWithRetry(loader, retries = 2) {
-  let lastError;
-  for (let attempt = 0; attempt <= retries; attempt += 1) {
-    try {
-      return await loader();
-    } catch (error) {
-      lastError = error;
-      if (attempt < retries) await new Promise((resolve) => setTimeout(resolve, (attempt + 1) * 800));
-    }
-  }
-  throw lastError;
-}
-
 function catalogueRows() {
   const articleRows = articles.map((article) => `<a class="chapter-row chapter-row--article" href="#/article/${article.id}">
     <span class="chapter-row__number">${article.number}</span>
@@ -37,25 +24,6 @@ function catalogueRows() {
     <span class="round-arrow">${icons.arrow}</span>
   </a>`).join('');
   return articleRows + workRows;
-}
-
-function homeView() {
-  return `<main class="page page--home is-home-loading">
-    <div class="home-loading-screen" role="status" aria-live="polite">
-      <span class="home-loading-mark" aria-hidden="true"><i></i></span>
-      <p>正在进入展览</p>
-    </div>
-    <section class="home-art" aria-label="${pageCopy('home', 'heroAria', '展览主视觉')}"><div class="cropped-temple" data-image-frame data-home-depth-root><picture>
-      <source media="(max-width: 600px)" srcset="${assetUrl('/artworks/home-swans-720.webp')}" />
-      <img src="${assetUrl('/artworks/home-swans-1080.webp')}" width="1080" height="867" alt="${pageCopy('home', 'heroAlt', '湖畔天鹅与桥梁油画')}" loading="eager" fetchpriority="high" decoding="async" />
-    </picture><span class="image-loader image-loader--hero" aria-hidden="true"><i></i><b>作品载入中</b></span><canvas class="home-depth-canvas" data-home-depth aria-hidden="true"></canvas></div></section>
-    <section class="home-copy">
-      <h1 aria-label="${exhibition.title}"><span class="home-title-line home-title-line--first">${exhibition.title.slice(0, 2)}</span><span class="home-title-line home-title-line--second">${exhibition.title.slice(2)}</span></h1>
-      <div class="home-subtitle"><i aria-hidden="true"></i><p>${exhibition.subtitle}</p></div>
-      <a class="enter-button" href="#/guide">${pageCopy('home', 'enterButton', '进入展览')} <span>◇</span></a>
-    </section>
-    <div class="home-flora" aria-hidden="true"></div>
-  </main>`;
 }
 
 function guideView() {
@@ -184,7 +152,7 @@ function render() {
   else if (route[0] === 'article') app.innerHTML = articleView(articles.find((item) => item.id === route[1]) || articles[0]);
   else if (route[0] === 'chapter') app.innerHTML = chapterView(chapters.find((item) => item.id === route[1]) || chapters[0]);
   else if (route[0] === 'work') app.innerHTML = detailView(works.find((item) => item.id === route[1]) || works[0]);
-  else app.innerHTML = homeView();
+  else app.innerHTML = guideView();
   bindChrome(app);
   const studentGroups = [...app.querySelectorAll('.student-group')];
   studentGroups.forEach((group) => group.addEventListener('toggle', () => {
@@ -206,30 +174,6 @@ function render() {
       image.addEventListener('error', fail, { once: true });
     }
   });
-  const homeDepthRoot = app.querySelector('[data-home-depth-root]');
-  if (homeDepthRoot) {
-    let cancelled = false;
-    let disposeDepth = () => {};
-    disposePage = () => { cancelled = true; disposeDepth(); };
-    importWithRetry(() => import('./components/depthTransition.js')).then(({ mountHomeDepthExperience }) => {
-      if (cancelled) return;
-      disposeDepth = mountHomeDepthExperience(homeDepthRoot, {
-        artwork: assetUrl('/artworks/home-swans-1080.webp'),
-        depthMap: assetUrl('/prototype/swans-depth-1080.webp'),
-        backdrop: assetUrl('/prototype/gray-blue-impasto-1080.webp'),
-        guideAssets: [
-          assetUrl('/decor/guide-impasto-background-v1.webp'),
-          assetUrl(matchMedia('(max-width: 600px)').matches ? '/artworks/studio-thumb.webp' : '/artworks/studio-large.webp'),
-          ...chapters.map((chapter) => assetUrl(chapter.image)),
-        ],
-        dimensions: { width: 1080, height: 867 },
-      });
-    }).catch(() => {
-      const page = homeDepthRoot.closest('.page--home');
-      page?.classList.remove('is-home-loading');
-      page?.classList.add('is-home-ready');
-    });
-  }
   const detailCanvas = app.querySelector('[data-detail-paint]');
   if (detailCanvas) {
     disposePage = mountPaintReveal(detailCanvas, {

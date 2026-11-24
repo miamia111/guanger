@@ -541,18 +541,6 @@
       "description": ""
     },
     {
-      "id": "temple-afternoon",
-      "chapter": "study",
-      "title": "庙埕午后",
-      "artist": "陈致远",
-      "year": "2026",
-      "size": "53 × 45 cm",
-      "medium": "布面油画",
-      "thumbnail": "/artworks/chen-temple-thumb.webp",
-      "image": "/artworks/chen-temple-large.webp",
-      "description": "阳光斜照庙埕，风轻拂过屋脊与香烟，光影在石板上流动。画面以厚笔触记录地方记忆，传递午后宁静与人文温度。"
-    },
-    {
       "id": "old-lane",
       "chapter": "study",
       "title": "旧巷日影（鼓浪屿老宅）",
@@ -1270,6 +1258,30 @@
       "medium": "纸本油彩",
       "thumbnail": "/artworks/huang-minhai-sails-thumb.webp",
       "image": "/artworks/huang-minhai-sails-large.webp",
+      "description": "临摹习作"
+    },
+    {
+      "id": "huang-luoqi-landscape",
+      "chapter": "voices",
+      "title": "风景",
+      "artist": "黄珞琪",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "纸本油彩",
+      "thumbnail": "/artworks/huang-luoqi-landscape-thumb.jpg",
+      "image": "/artworks/huang-luoqi-landscape-large.jpg",
+      "description": "临摹习作"
+    },
+    {
+      "id": "huang-ruizhen-landscape",
+      "chapter": "voices",
+      "title": "风景",
+      "artist": "黄睿桢",
+      "year": "资料待补",
+      "size": "尺寸待补",
+      "medium": "纸本油彩",
+      "thumbnail": "/artworks/huang-ruizhen-landscape-thumb.jpg",
+      "image": "/artworks/huang-ruizhen-landscape-large.jpg",
       "description": "临摹习作"
     },
     {
