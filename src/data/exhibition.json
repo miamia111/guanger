@@ -129,7 +129,7 @@
       "id": "student-5f208212598d",
       "name": "张舒妍",
       "role": "参展学生",
-      "intro": "张舒妍，2001年生于福建，2026年毕业于英国爱丁堡大学建筑学硕士专业。\n\n她的绘画以风景为主，着重表现自然景物中的色彩与光影。她关注光线变化时景物呈现出的不同色调，并通过冷暖色彩与明暗层次的组织，捕捉风景在特定时刻的氛围。\n\n她在绘画与建筑之间寻找共通之处，尤其关注光线如何塑造人对空间的感受。建筑学习让她留意景物之间的距离、层次与虚实，而绘画让她得以用色彩和光影表达这些空间体验。"
+      "intro": "张舒妍，2001年生于福建，2026年毕业于英国爱丁堡大学建筑学硕士专业。\n\n我的绘画以风景为主，着重表现自然景物中的色彩与光影。我关注光线变化时景物呈现出的不同色调，并通过冷暖色彩与明暗层次的组织，捕捉风景在特定时刻的氛围。\n\n我在绘画与建筑之间寻找共通之处，尤其关注光线如何塑造人对空间的感受。建筑学习让我留意景物之间的距离、层次与虚实，而绘画让我得以用色彩和光影表达这些空间体验。"
     },
     {
       "id": "student-5085742c8335",
@@ -141,7 +141,7 @@
       "id": "wu-si",
       "name": "吴偲",
       "role": "参展学生",
-      "intro": "吴偲，1989年生于湖北，现于英国伦敦艺术大学坎伯韦尔艺术学院攻读纯艺术绘画硕士。\n\n她的创作游走于具象与抽象之间，以油画、综合材料及雕塑等多种媒介，探索自然、神话、宗教与未知世界之间的联系。作品常以女性身体、生命形态及其变异为视觉语言，在美与恐惧、神圣与怪诞的对立中寻找微妙的平衡。"
+      "intro": "吴偲，1989年生于湖北，现于英国伦敦艺术大学坎伯韦尔艺术学院攻读纯艺术绘画硕士。\n\n我的创作游走于具象与抽象之间，以油画、综合材料及雕塑等多种媒介，探索自然、神话、宗教与未知世界之间的联系。我的作品常以女性身体、生命形态及其变异为视觉语言，在美与恐惧、神圣与怪诞的对立中寻找微妙的平衡。"
     },
     {
       "id": "student-80968c1a",
@@ -201,7 +201,7 @@
       "id": "student-chen-huan",
       "name": "陈欢",
       "role": "参展学生",
-      "intro": "学生简介待补充。"
+      "intro": "陈欢，进修于星海音乐学院，现为钢琴教师。曾独自钻研绘画，如今在陈致远老师的指导下得到更为专业的点拨，令我受益匪浅。\n\n我的作品多在临习与观察中展开，体味建筑与山水独有的气韵。常年与音乐相伴，让我对节奏、层次与情绪氛围格外敏感，也不自觉将这份感受带入画面。\n\n音乐与绘画本自相通。在琴音与笔墨之间，习画于我，不只是学习技法，更是换一种方式重新感知生活。"
     }
   ],
   "chapters": [
@@ -1035,50 +1035,38 @@
     {
       "id": "fu-wanyin-pending-01",
       "chapter": "voices",
-      "title": "作品名待补（01）",
+      "title": "和平之鸽",
       "artist": "傅琬茵",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "油画",
       "thumbnail": "/artworks/fu-wanyin-pending-01-thumb.webp",
       "image": "/artworks/fu-wanyin-pending-01-large.webp",
       "description": "作品资料将在后续补充。"
     },
     {
-      "id": "fu-wanyin-pending-02",
-      "chapter": "voices",
-      "title": "作品名待补（02）",
-      "artist": "傅琬茵",
-      "year": "资料待补",
-      "size": "尺寸待补",
-      "medium": "资料待补",
-      "thumbnail": "/artworks/fu-wanyin-pending-02-thumb.webp",
-      "image": "/artworks/fu-wanyin-pending-02-large.webp",
-      "description": "作品资料将在后续补充。"
-    },
-    {
       "id": "fu-wanyin-pending-03",
       "chapter": "voices",
-      "title": "作品名待补（03）",
+      "title": "凯旋门",
       "artist": "傅琬茵",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "油彩",
       "thumbnail": "/artworks/fu-wanyin-pending-03-thumb.webp",
       "image": "/artworks/fu-wanyin-pending-03-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "fu-wanyin-pending-04",
       "chapter": "voices",
-      "title": "作品名待补（04）",
+      "title": "马尔代夫",
       "artist": "傅琬茵",
       "year": "资料待补",
       "size": "尺寸待补",
-      "medium": "资料待补",
+      "medium": "油彩",
       "thumbnail": "/artworks/fu-wanyin-pending-04-thumb.webp",
       "image": "/artworks/fu-wanyin-pending-04-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "you-ancient-banyan",
@@ -1198,7 +1186,7 @@
       "medium": "布面油画",
       "thumbnail": "/artworks/wangchen-fish-clam-thumb.webp",
       "image": "/artworks/wangchen-fish-clam-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "临摹习作"
     },
     {
       "id": "chen-nanlin-balafish",
