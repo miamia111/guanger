@@ -376,6 +376,8 @@
 .page--guide .guide-catalogue > .ornament-rule { color: rgba(64,89,139,.75); }
 
 @media (max-width: 760px) {
+  .page--guide::before,
+  .page--guide::after { background-size: cover; }
   .page--guide .site-header { padding-top: 31px; }
   .page--guide .site-header .wordmark { font-size: 25px; }
   .page--guide .guide-intro { padding-top: 52px; }
