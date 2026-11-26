@@ -135,7 +135,7 @@
       "id": "student-5085742c8335",
       "name": "傅琬茵",
       "role": "参展学生",
-      "intro": "傅琬茵，22岁，从小喜欢绘画，高中时期跟随陈致远老师进行专业化、系统化的绘画学习，现就读于加拿大艺术与设计第一的 Emily Carr 艺术与设计大学 Visual Art 专业，主要学习 Drawing & Painting 方向。"
+      "intro": "傅琬茵，自幼喜爱绘画，高中师从陈致远老师接受系统专业的绘画训练，现就读于加拿大顶尖艺术院校 Emily Carr 艺术与设计大学 Visual Art 专业。\n\n我以色彩、肌理构筑观看世界的通道。不定义风物的样貌，只提供一种新的视角——世界本不黯淡，万物本身蕴藏多义，不同的凝视，会生长出不一样的情绪。愿观者在色彩之间，找到属于自己的那份感知。"
     },
     {
       "id": "wu-si",
@@ -189,7 +189,7 @@
       "id": "student-9ec4777f6862",
       "name": "黄睿桢",
       "role": "参展学生",
-      "intro": "学生简介待补充。"
+      "intro": "黄睿桢，2012年生，现就读于厦门外国语学校，从小喜欢画画。"
     },
     {
       "id": "student-chen-huan",
@@ -1035,14 +1035,14 @@
     {
       "id": "fu-wanyin-pending-01",
       "chapter": "voices",
-      "title": "和平之鸽",
+      "title": "启翼",
       "artist": "傅琬茵",
       "year": "资料待补",
       "size": "尺寸待补",
       "medium": "油画",
       "thumbnail": "/artworks/fu-wanyin-pending-01-thumb.webp",
       "image": "/artworks/fu-wanyin-pending-01-large.webp",
-      "description": "作品资料将在后续补充。"
+      "description": "羽翼启动、腾空而起，是生命自发的舒展与跃动。"
     },
     {
       "id": "fu-wanyin-pending-03",
